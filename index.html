@@ -14,8 +14,7 @@
 <link rel="manifest" id="pwaManifest">
 <style>
 :root{
-  --bg-0:#050510;--bg-1:#0A0A1A;
-  --glass:rgba(255,255,255,.045);--glass-2:rgba(255,255,255,.07);
+  --bg-0:#050510;--glass:rgba(255,255,255,.045);--glass-2:rgba(255,255,255,.07);
   --stroke:rgba(255,255,255,.07);--stroke-2:rgba(255,255,255,.12);--stroke-3:rgba(255,255,255,.18);
   --text:#FFFFFF;--text-2:#B4B4D0;--text-3:#6E6E8E;--text-4:#4A4A66;
   --lime:#D4FF3A;--lime-2:#9BC72A;--emerald:#10B981;--emerald-2:#059669;
@@ -43,7 +42,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;ba
 button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer;font-size:inherit}
 ::-webkit-scrollbar{display:none}*{scrollbar-width:none}svg{display:block}
 
-/* Offline bar */
+/* ===== OFFLINE ===== */
 .offline-bar{position:fixed;top:calc(var(--hdr-h) + env(safe-area-inset-top));left:0;right:0;z-index:890;
   padding:10px 14px;background:linear-gradient(90deg,rgba(255,176,32,.95),rgba(217,119,6,.95));
   color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;
@@ -51,7 +50,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .offline-bar.on{transform:translateY(0)}
 .offline-bar svg{width:14px;height:14px;stroke:#fff;stroke-width:2.4;fill:none}
 
-/* Header */
+/* ===== HEADER ===== */
 .hdr{position:fixed;top:0;left:0;right:0;z-index:900;height:calc(var(--hdr-h) + env(safe-area-inset-top));
   padding:env(safe-area-inset-top) 14px 0;background:linear-gradient(180deg,rgba(5,5,16,.96),rgba(5,5,16,.72) 70%,transparent);
   backdrop-filter:blur(28px) saturate(180%);border-bottom:1px solid var(--stroke);display:flex;align-items:center}
@@ -79,7 +78,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
 
-/* Search bar */
+/* ===== SEARCH ===== */
 .search-wrap{margin:12px 14px 8px;position:relative}
 .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--text-3);stroke-width:2.2;fill:none;pointer-events:none}
 .search-input{width:100%;padding:12px 14px 12px 42px;background:var(--glass);border:1px solid var(--stroke);border-radius:14px;
@@ -87,7 +86,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .search-input::placeholder{color:var(--text-3)}
 .search-input:focus{outline:none;border-color:var(--lime);background:rgba(212,255,58,.05);box-shadow:0 0 0 3px rgba(212,255,58,.12)}
 
-/* Ticker */
+/* ===== TICKER ===== */
 .ticker{margin:0 14px 10px;height:32px;border-radius:12px;background:linear-gradient(90deg,rgba(212,255,58,.10),rgba(16,185,129,.06));
   border:1px solid rgba(212,255,58,.22);display:flex;align-items:center;overflow:hidden;font-size:11px;font-family:var(--font-en);font-weight:700}
 .ticker .lbl{background:linear-gradient(135deg,var(--lime),var(--lime-2));color:#050510;padding:0 11px;height:100%;display:flex;align-items:center;gap:5px;font-size:9.5px;letter-spacing:.8px;flex-shrink:0;font-weight:800}
@@ -98,7 +97,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .ticker-item{display:flex;align-items:center;gap:6px;color:var(--text-2)}
 .ticker-item b{color:var(--lime);font-weight:800}
 
-/* Sport switch */
+/* ===== SPORT SWITCH ===== */
 .sport-switch{margin:0 14px 12px;display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:4px;background:var(--glass);border:1px solid var(--stroke);border-radius:14px;position:relative;overflow:hidden}
 .sport-switch::before{content:"";position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 6px);border-radius:11px;
   background:linear-gradient(135deg,var(--lime),var(--lime-2));transition:transform .4s var(--ease-out),background .4s;box-shadow:0 8px 22px -8px rgba(212,255,58,.7)}
@@ -108,15 +107,16 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .sport-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
 .sport-btn.on{color:#050510}
 
-/* Pages */
+/* ===== PAGES ===== */
 .page{display:none;animation:pageIn .45s var(--ease-out)}
 .page.on{display:block}
 @keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
-/* Chips */
+/* ===== CHIPS ===== */
 .chips{display:flex;gap:7px;padding:0 14px 14px;overflow-x:auto}
 .chip{flex-shrink:0;padding:8px 15px;border-radius:999px;background:var(--glass);border:1px solid var(--stroke);
   font-size:11.5px;font-weight:600;color:var(--text-2);display:inline-flex;align-items:center;gap:6px;transition:all .22s var(--ease-out);white-space:nowrap}
+.chip:active{transform:scale(.94)}
 .chip.on{background:rgba(255,255,255,.1);border-color:var(--stroke-3);color:#fff}
 .chip.on.live{background:linear-gradient(135deg,rgba(255,59,92,.22),rgba(255,59,92,.08));border-color:rgba(255,59,92,.45);color:#FF8DA3}
 .chip.on.intl{background:linear-gradient(135deg,rgba(139,92,246,.24),rgba(139,92,246,.10));border-color:rgba(139,92,246,.5);color:#C4B5FD}
@@ -124,7 +124,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .chip .cnt{background:rgba(255,255,255,.08);padding:1px 7px;border-radius:6px;font-family:var(--font-en);font-weight:700;font-size:9.5px}
 .chip.on .cnt{background:rgba(0,0,0,.28)}
 
-/* Sections */
+/* ===== SECTIONS ===== */
 .sec-hd{display:flex;align-items:center;justify-content:space-between;padding:0 14px 10px;margin-top:6px}
 .sec-hd h2{font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:8px}
 .sec-hd h2 .pulse{width:7px;height:7px;border-radius:50%;background:var(--crimson);box-shadow:0 0 10px var(--crimson);animation:pulse 1.4s infinite}
@@ -135,7 +135,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .fav-hd{background:linear-gradient(90deg,rgba(255,176,32,.12),transparent)!important;border-bottom-color:rgba(255,176,32,.2)!important}
 .fav-hd h2{color:#FFD98A}
 
-/* Hero */
+/* ===== HERO ===== */
 .hero-wrap{padding:0 14px 16px}
 .hero{border-radius:var(--r-xl);padding:20px;position:relative;overflow:hidden;
   background:linear-gradient(135deg,rgba(255,59,92,.14),rgba(139,92,246,.10) 50%,rgba(34,211,238,.08));
@@ -154,13 +154,14 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .hero-min{font-family:var(--font-en);font-size:10.5px;font-weight:800;color:var(--text-2)}
 .hero-min b{color:var(--lime);font-size:13px}
 .hero-star{position:absolute;top:12px;right:14px;z-index:2;width:32px;height:32px;border-radius:50%;
-  background:rgba(0,0,0,.45);border:1px solid var(--stroke-2);display:grid;place-items:center}
+  background:rgba(0,0,0,.45);border:1px solid var(--stroke-2);display:grid;place-items:center;transition:.2s}
+.hero-star:active{transform:scale(.9)}
 .hero-star svg{width:15px;height:15px;stroke:var(--text-2);stroke-width:2;fill:none}
 .hero-star.on svg{stroke:var(--amber);fill:var(--amber)}
 .hero-star.on{background:rgba(255,176,32,.15);border-color:rgba(255,176,32,.4)}
 .hero-comp{font-size:10.5px;color:var(--text-3);font-family:var(--font-en);font-weight:600;margin-bottom:16px;text-align:center;text-transform:uppercase}
 .hero-teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}
-.hero-team{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;cursor:pointer}
+.hero-team{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
 .crest-lg{width:58px;height:58px;border-radius:17px;display:grid;place-items:center;font-family:var(--font-en);font-weight:900;font-size:20px;border:1px solid var(--stroke-2);overflow:hidden;flex-shrink:0}
 .hero-team .name{font-size:12px;font-weight:700;line-height:1.25;max-width:100px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .hero-score{display:flex;flex-direction:column;align-items:center;gap:4px}
@@ -170,7 +171,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .live-progress{margin-top:16px;height:3px;border-radius:2px;background:rgba(255,255,255,.06);overflow:hidden;position:relative}
 .live-progress i{position:absolute;top:0;left:0;bottom:0;border-radius:2px;background:linear-gradient(90deg,var(--crimson),var(--violet))}
 
-/* League group */
+/* ===== LEAGUE GROUP ===== */
 .league-group{margin:0 14px 14px;border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--stroke);overflow:hidden;animation:fadeUp .5s var(--ease-out) both}
 .league-group.intl{border-color:rgba(139,92,246,.28);background:linear-gradient(180deg,rgba(139,92,246,.06),var(--glass))}
 .league-group.fav{border-color:rgba(255,176,32,.28);background:linear-gradient(180deg,rgba(255,176,32,.06),var(--glass))}
@@ -181,7 +182,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .league-name small{display:block;font-size:9.5px;color:var(--text-3);font-weight:500;margin-top:1px}
 .league-count{font-family:var(--font-en);font-size:9.5px;font-weight:700;color:var(--text-3);padding:4px 8px;border-radius:6px;background:rgba(255,255,255,.05);border:1px solid var(--stroke)}
 
-/* Match row with stagger */
+/* ===== MATCH ROW ===== */
 .match{display:grid;grid-template-columns:48px 1fr 28px;gap:11px;padding:14px;border-bottom:1px solid var(--stroke);position:relative;cursor:pointer;animation:matchIn .4s var(--ease-out) both}
 @keyframes matchIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
 .match:last-child{border-bottom:none}
@@ -196,7 +197,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .match.live .match-time .st{color:var(--crimson)}
 .match-time .tm.date{color:var(--text-2);font-size:9.5px}
 .match-body{display:flex;flex-direction:column;gap:7px;min-width:0}
-.mteam{display:grid;grid-template-columns:24px 1fr auto;align-items:center;gap:9px;min-width:0;cursor:pointer}
+.mteam{display:grid;grid-template-columns:24px 1fr auto;align-items:center;gap:9px;min-width:0}
 .crest-sm{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-family:var(--font-en);font-weight:800;font-size:10px;border:1px solid var(--stroke-2);overflow:hidden;flex-shrink:0}
 .mteam .tn{font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .mteam .ts{font-family:var(--font-en);font-weight:800;font-size:15px;min-width:20px;text-align:right;color:var(--text-2)}
@@ -204,7 +205,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .mteam.win .tn{font-weight:700;color:#fff}
 .mteam.lose .ts{color:var(--text-4);opacity:.7}
 
-/* Premium crest */
+/* ===== PREMIUM CREST ===== */
 .crest-lg.crest-img,.crest-sm.crest-img{background:rgba(255,255,255,.06);padding:4px;border:1px solid var(--stroke-2)}
 .crest-lg.crest-img{padding:7px}
 .crest-sm.crest-img{padding:3px}
@@ -223,12 +224,13 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .crest-sm.crest-premium span{font-size:11px;letter-spacing:-.3px}
 
 .match-star{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.04);
-  border:1px solid var(--stroke);align-self:center;transition:transform .2s var(--ease-spring)}
+  border:1px solid var(--stroke);align-self:center;transition:transform .2s var(--ease-spring),background .2s}
 .match-star:active{transform:scale(.85)}
 .match-star svg{width:14px;height:14px;stroke:var(--text-3);stroke-width:2;fill:none}
 .match-star.on svg{stroke:var(--amber);fill:var(--amber)}
 .match-star.on{background:rgba(255,176,32,.12);border-color:rgba(255,176,32,.35)}
 
+/* ===== SKELETON ===== */
 .sk-group{margin:0 14px 14px;border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--stroke);overflow:hidden}
 .sk-hd{height:44px;border-bottom:1px solid var(--stroke);background:linear-gradient(90deg,rgba(255,255,255,.03),rgba(255,255,255,.07),rgba(255,255,255,.03));background-size:200% 100%;animation:shimmer 1.6s ease infinite}
 .sk-row{height:58px;border-bottom:1px solid var(--stroke);padding:14px;display:grid;grid-template-columns:48px 1fr;gap:11px}
@@ -239,38 +241,38 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .sk-line.n2{height:11px;width:55%;margin-top:7px}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
+/* ===== EMPTY ===== */
 .empty{margin:0 14px 20px;padding:48px 24px;border-radius:var(--r-lg);background:var(--glass);border:1px dashed var(--stroke-2);text-align:center}
 .empty .ic{width:56px;height:56px;margin:0 auto 16px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid var(--stroke);display:grid;place-items:center}
 .empty .ic svg{width:22px;height:22px;stroke:var(--text-3);stroke-width:1.6;fill:none}
 .empty h3{font-size:13.5px;font-weight:700;margin-bottom:6px}
 .empty p{font-size:11.5px;color:var(--text-3);line-height:1.6}
 
+/* ===== ERROR ===== */
 .err-card{margin:14px;padding:26px 22px 24px;border-radius:var(--r-xl);text-align:center;position:relative;overflow:hidden;
-  background:linear-gradient(160deg,rgba(255,59,92,.10),rgba(139,92,246,.06) 60%,var(--glass));
-  border:1px solid rgba(255,59,92,.22);animation:errIn .5s var(--ease-out)}
-@keyframes errIn{from{opacity:0;transform:scale(.96) translateY(10px)}to{opacity:1;transform:none}}
-.err-ic{width:66px;height:66px;margin:0 auto 18px;border-radius:20px;display:grid;place-items:center;position:relative;z-index:1;
+  background:linear-gradient(160deg,rgba(255,59,92,.10),rgba(139,92,246,.06) 60%,var(--glass));border:1px solid rgba(255,59,92,.22)}
+.err-ic{width:66px;height:66px;margin:0 auto 18px;border-radius:20px;display:grid;place-items:center;
   background:linear-gradient(135deg,rgba(255,59,92,.22),rgba(255,59,92,.06));border:1px solid rgba(255,59,92,.32)}
 .err-ic svg{width:30px;height:30px;stroke:var(--crimson);stroke-width:1.9;fill:none}
-.err-title{font-size:16.5px;font-weight:800;margin-bottom:7px;position:relative;z-index:1}
-.err-desc{font-size:12.5px;color:var(--text-2);line-height:1.65;margin-bottom:20px;position:relative;z-index:1;max-width:300px;margin-left:auto;margin-right:auto}
-.err-actions{display:flex;gap:10px;justify-content:center;position:relative;z-index:1}
-.err-btn{padding:12px 24px;border-radius:13px;font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;gap:7px;font-family:inherit}
+.err-title{font-size:16.5px;font-weight:800;margin-bottom:7px}
+.err-desc{font-size:12.5px;color:var(--text-2);line-height:1.65;margin-bottom:20px;max-width:300px;margin-left:auto;margin-right:auto}
+.err-actions{display:flex;gap:10px;justify-content:center}
+.err-btn{padding:12px 24px;border-radius:13px;font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;gap:7px}
 .err-btn.primary{background:linear-gradient(135deg,var(--lime),var(--lime-2));color:#050510;box-shadow:0 10px 26px -10px rgba(212,255,58,.7)}
-.err-btn.primary svg{stroke:#050510}
 .err-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2.4;fill:none}
 
+/* ===== BOTTOM NAV ===== */
 .bnav{position:fixed;left:0;right:0;bottom:0;z-index:900;height:calc(var(--nav-h) + env(safe-area-inset-bottom));
   padding:0 4px env(safe-area-inset-bottom);display:grid;grid-template-columns:repeat(4,1fr);
   background:linear-gradient(180deg,rgba(10,10,26,.94),rgba(5,5,16,.99));backdrop-filter:blur(32px) saturate(180%);border-top:1px solid var(--stroke)}
-.bnav-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px 0;font-size:9.5px;font-weight:600;
-  color:var(--text-4);position:relative;transition:color .2s}
+.bnav-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px 0;font-size:9.5px;font-weight:600;color:var(--text-4);position:relative;transition:color .2s}
 .bnav-btn svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.9;fill:none;transition:transform .3s var(--ease-spring)}
 .bnav-btn.on{color:var(--lime)}
 .bnav-btn.on svg{transform:translateY(-2px) scale(1.08)}
 .bnav-btn.on::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:22px;height:2.5px;border-radius:0 0 3px 3px;background:linear-gradient(90deg,var(--lime),var(--emerald))}
 .bnav-btn .badge{position:absolute;top:5px;right:calc(50% - 17px);background:linear-gradient(135deg,var(--crimson),var(--crimson-2));color:#fff;font-size:8px;font-weight:800;font-family:var(--font-en);min-width:15px;height:15px;border-radius:8px;padding:0 4px;display:grid;place-items:center;box-shadow:0 0 0 2px var(--bg-0)}
 
+/* ===== SHEET ===== */
 .mask{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .35s}
 .mask.on{opacity:1;pointer-events:auto}
 .sheet{position:fixed;left:0;right:0;bottom:0;z-index:1100;max-height:88vh;background:linear-gradient(180deg,#10102A,#0A0A1A);
@@ -278,7 +280,8 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
   overflow:hidden;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom)}
 .sheet.on{transform:none}
 .sheet-grab{width:40px;height:4px;border-radius:2px;background:rgba(255,255,255,.2);margin:12px auto 6px}
-.sheet-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:var(--glass-2);border:1px solid var(--stroke-2);display:grid;place-items:center;z-index:5}
+.sheet-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:var(--glass-2);border:1px solid var(--stroke-2);display:grid;place-items:center;transition:.2s}
+.sheet-close:active{transform:scale(.9)}
 .sheet-close svg{width:13px;height:13px;stroke:var(--text-2);stroke-width:2.5;fill:none}
 .sheet-body{padding:8px 20px 26px;overflow-y:auto}
 .sd-hero{padding:18px 0 22px;border-bottom:1px solid var(--stroke);margin-bottom:20px}
@@ -286,7 +289,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .sd-status{text-align:center;font-size:12px;color:var(--text-2);font-weight:600;margin-bottom:20px}
 .sd-status.live{color:var(--crimson)}
 .sd-teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
-.sd-side{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;cursor:pointer}
+.sd-side{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
 .sd-side .crest-lg{width:64px;height:64px;font-size:22px;border-radius:19px}
 .sd-side .name{font-size:12.5px;font-weight:700;line-height:1.3;max-width:110px}
 .sd-score{font-family:var(--font-en);font-weight:900;font-size:42px;letter-spacing:-2.6px;line-height:1;display:flex;gap:12px;align-items:baseline}
@@ -297,7 +300,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .sd-info small{font-size:9.5px;color:var(--text-3);font-family:var(--font-en);font-weight:600;text-transform:uppercase}
 .sd-info b{display:block;font-size:12.5px;font-weight:700;margin-top:4px}
 
-/* H2H bar */
+/* ===== H2H & WEATHER ===== */
 .h2h-row{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;margin-bottom:14px;align-items:center}
 .h2h-stat{text-align:center;padding:12px;background:var(--glass);border:1px solid var(--stroke);border-radius:12px}
 .h2h-stat b{display:block;font-size:20px;font-family:var(--font-en);font-weight:900;color:var(--lime)}
@@ -308,15 +311,13 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .h2h-legend{display:flex;justify-content:space-between;font-size:10px;color:var(--text-3);font-family:var(--font-en)}
 .h2h-legend span{display:flex;align-items:center;gap:5px}
 .h2h-legend b{width:8px;height:8px;border-radius:2px}
-
-/* Weather */
 .weather-card{display:flex;align-items:center;gap:14px;padding:14px;background:var(--glass);border:1px solid var(--stroke);border-radius:12px}
 .weather-icon{font-size:32px}
 .weather-info{flex:1}
 .weather-info b{display:block;font-size:16px;font-family:var(--font-en);font-weight:800}
 .weather-info span{font-size:11px;color:var(--text-3)}
 
-/* Team detail */
+/* ===== TEAM DETAIL ===== */
 .team-head{display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px 0;text-align:center;border-bottom:1px solid var(--stroke);margin-bottom:18px}
 .team-head .crest-lg{width:80px;height:80px;font-size:30px;border-radius:24px}
 .team-head h2{font-size:20px;font-weight:800;letter-spacing:-.3px}
@@ -326,6 +327,120 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .team-stat b{display:block;font-size:20px;font-weight:900;font-family:var(--font-en);color:var(--lime)}
 .team-stat small{font-size:9.5px;color:var(--text-3);text-transform:uppercase;font-family:var(--font-en);letter-spacing:.4px;margin-top:3px;display:block}
 
+/* ===== PROFILE ===== */
+.prof-card{margin:0 14px 14px;padding:22px;border-radius:var(--r-xl);background:linear-gradient(135deg,rgba(212,255,58,.10),rgba(16,185,129,.06));
+  border:1px solid rgba(212,255,58,.22);position:relative;overflow:hidden}
+.prof-card::before{content:"";position:absolute;top:-40px;right:-30px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,255,58,.28),transparent 65%);filter:blur(8px)}
+.prof-row{display:flex;align-items:center;gap:14px;position:relative;z-index:1}
+.prof-ava{width:58px;height:58px;border-radius:19px;background:linear-gradient(135deg,var(--lime),var(--lime-2));
+  display:grid;place-items:center;font-family:var(--font-en);font-weight:900;font-size:22px;color:#050510;position:relative}
+.prof-ava::after{content:"";position:absolute;bottom:-2px;right:-2px;width:15px;height:15px;border-radius:50%;background:var(--emerald);border:2px solid var(--bg-0)}
+.prof-info h3{font-size:15.5px;font-weight:700;margin-bottom:2px}
+.prof-info p{font-size:11px;color:var(--text-3);font-family:var(--font-en)}
+.prof-badge{margin-left:auto;padding:5px 11px;border-radius:999px;font-family:var(--font-en);font-size:9px;font-weight:800;background:linear-gradient(135deg,var(--lime),var(--lime-2));color:#050510}
+
+/* 🎯 FIXED menu-list */
+.menu-list{margin:0 14px}
+.menu-item{width:100%;display:flex;align-items:center;gap:12px;background:var(--glass);border:1px solid var(--stroke);
+  border-radius:14px;padding:14px;margin-bottom:8px;text-align:left;transition:transform .2s var(--ease-out),background .2s}
+.menu-item:active{transform:scale(.98);background:var(--glass-2)}
+.mi-ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex-shrink:0 !important;overflow:hidden}
+.mi-ic svg{width:17px !important;height:17px !important;max-width:17px !important;max-height:17px !important;fill:none !important;stroke-width:1.9 !important}
+.mi-ic.gold{background:rgba(212,255,58,.15);border:1px solid rgba(212,255,58,.28)}
+.mi-ic.gold svg{stroke:var(--lime) !important}
+.mi-ic.violet{background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.28)}
+.mi-ic.violet svg{stroke:var(--violet) !important}
+.mi-ic.pink{background:rgba(255,59,92,.15);border:1px solid rgba(255,59,92,.28)}
+.mi-ic.pink svg{stroke:var(--crimson) !important}
+.mi-ic.amber{background:rgba(255,176,32,.15);border:1px solid rgba(255,176,32,.28)}
+.mi-ic.amber svg{stroke:var(--amber) !important}
+.mi-text{flex:1 !important;min-width:0 !important;text-align:left}
+.mi-text b{display:block !important;font-size:13px !important;font-weight:600 !important;color:var(--text) !important}
+.mi-text span{font-size:10.5px !important;color:var(--text-3) !important;display:block !important;margin-top:2px !important}
+.mi-arrow{width:14px !important;height:14px !important;stroke:var(--text-3) !important;stroke-width:2.4 !important;fill:none !important;flex-shrink:0 !important}
+.mi-toggle{margin-left:auto;flex-shrink:0}
+.mi-toggle input{appearance:none;width:40px;height:23px;border-radius:11.5px;background:rgba(255,255,255,.1);position:relative;transition:.25s;cursor:pointer}
+.mi-toggle input:checked{background:linear-gradient(135deg,var(--lime),var(--lime-2))}
+.mi-toggle input::after{content:"";position:absolute;top:3px;left:3px;width:17px;height:17px;border-radius:50%;background:#fff;transition:.25s var(--ease-spring)}
+.mi-toggle input:checked::after{transform:translateX(17px)}
+
+/* ===== STATS ===== */
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 14px 16px}
+.stat-card{padding:15px;border-radius:16px;background:var(--glass);border:1px solid var(--stroke)}
+.stat-card small{font-size:9.5px;color:var(--text-3);font-family:var(--font-en);font-weight:700;text-transform:uppercase}
+.stat-card b{display:block;font-size:24px;font-weight:900;font-family:var(--font-en);margin-top:5px}
+.stat-card.live b{color:var(--crimson)}
+.stat-card.gold b{color:var(--lime)}
+
+/* ===== SCHEDULE ===== */
+.day-block{margin:0 14px 14px;border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--stroke);overflow:hidden}
+.day-hd{display:flex;align-items:center;gap:10px;padding:13px 14px;background:linear-gradient(90deg,rgba(255,255,255,.03),transparent);border-bottom:1px solid var(--stroke)}
+.day-num{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--lime),var(--lime-2));
+  display:grid;place-items:center;font-family:var(--font-en);font-weight:900;font-size:14px;color:#050510;flex-shrink:0;line-height:1}
+.day-num small{display:block;font-size:7.5px;font-weight:800;margin-top:1px}
+.day-meta{flex:1}
+.day-meta b{display:block;font-size:13px;font-weight:700}
+.day-meta span{font-size:10px;color:var(--text-3);font-family:var(--font-en)}
+
+/* ===== ABOUT PAGE — PREMIUM ===== */
+.about-hero{text-align:center;padding:30px 20px 24px;position:relative;overflow:hidden}
+.about-hero::before{content:"";position:absolute;top:-50px;left:50%;transform:translateX(-50%);width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,255,58,.15),transparent 65%);filter:blur(20px);pointer-events:none}
+.about-logo{width:80px;height:80px;border-radius:24px;background:linear-gradient(135deg,var(--lime),var(--lime-2) 60%,#79A81E);
+  display:grid;place-items:center;margin:0 auto 16px;position:relative;
+  box-shadow:0 20px 50px -20px rgba(212,255,58,.7),inset 0 2px 0 rgba(255,255,255,.5)}
+.about-logo::after{content:"";position:absolute;inset:0;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.4),transparent 55%);pointer-events:none}
+.about-logo svg{width:40px;height:40px;stroke:#050510;stroke-width:2.4;fill:none;position:relative;z-index:1}
+.about-hero h1{font-size:24px;font-weight:800;letter-spacing:-.4px;margin-bottom:6px}
+.about-hero p{font-size:13px;color:var(--text-3);margin-bottom:16px}
+.about-ver{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;
+  background:linear-gradient(135deg,rgba(212,255,58,.15),rgba(16,185,129,.10));border:1px solid rgba(212,255,58,.28);
+  font-family:var(--font-en);font-size:10px;font-weight:800;letter-spacing:.8px;color:var(--lime)}
+.about-ver::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 1.5s infinite}
+
+.about-section{margin:0 14px 18px;padding:18px;border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--stroke)}
+.about-section h3{font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;letter-spacing:-.1px}
+.about-section h3 .ico{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;flex-shrink:0}
+.about-section h3 .ico svg{width:14px;height:14px;fill:none;stroke-width:2}
+.about-section h3 .ico.gold{background:rgba(212,255,58,.15);border:1px solid rgba(212,255,58,.28)}
+.about-section h3 .ico.gold svg{stroke:var(--lime)}
+.about-section h3 .ico.violet{background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.28)}
+.about-section h3 .ico.violet svg{stroke:var(--violet)}
+.about-section h3 .ico.pink{background:rgba(255,59,92,.15);border:1px solid rgba(255,59,92,.28)}
+.about-section h3 .ico.pink svg{stroke:var(--crimson)}
+.about-section h3 .ico.amber{background:rgba(255,176,32,.15);border:1px solid rgba(255,176,32,.28)}
+.about-section h3 .ico.amber svg{stroke:var(--amber)}
+.about-section p{font-size:12.5px;line-height:1.75;color:var(--text-2)}
+.about-section p strong{color:var(--text);font-weight:700}
+
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.feat-item{padding:14px 12px;background:rgba(255,255,255,.03);border:1px solid var(--stroke);border-radius:12px;text-align:center}
+.feat-item .fi-ic{font-size:24px;margin-bottom:6px}
+.feat-item b{display:block;font-size:11.5px;font-weight:700;margin-bottom:3px}
+.feat-item span{font-size:10px;color:var(--text-3);line-height:1.4}
+
+.stat-big{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat-big-item{padding:14px;background:linear-gradient(135deg,rgba(212,255,58,.08),rgba(16,185,129,.04));
+  border:1px solid rgba(212,255,58,.15);border-radius:12px}
+.stat-big-item b{display:block;font-size:22px;font-family:var(--font-en);font-weight:900;
+  background:linear-gradient(135deg,var(--lime),var(--emerald));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat-big-item small{font-size:10px;color:var(--text-3);display:block;margin-top:3px;font-family:var(--font-en);letter-spacing:.4px;text-transform:uppercase}
+
+.tech-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.tech-chip{padding:6px 12px;border-radius:999px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.25);
+  font-family:var(--font-en);font-size:10px;font-weight:700;color:#C4B5FD;letter-spacing:.3px}
+
+.credit-box{margin:0 14px 18px;padding:18px;border-radius:var(--r-lg);
+  background:linear-gradient(135deg,rgba(212,255,58,.10),rgba(255,176,32,.06));
+  border:1px solid rgba(212,255,58,.22);text-align:center}
+.credit-box .heart{font-size:24px;margin-bottom:8px;animation:beat 1.4s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.credit-box h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.credit-box p{font-size:11.5px;color:var(--text-3);line-height:1.6}
+.credit-box b{color:var(--lime);font-weight:700}
+
+/* ===== TOAST ===== */
 .toast{position:fixed;top:calc(var(--hdr-h) + env(safe-area-inset-top) + 14px);left:50%;transform:translateX(-50%) translateY(-24px) scale(.9);
   z-index:9999;padding:11px 18px;border-radius:13px;background:linear-gradient(135deg,rgba(16,185,129,.96),rgba(5,150,105,.96));
   color:#fff;font-size:12.5px;font-weight:600;box-shadow:0 14px 40px -10px rgba(16,185,129,.7);opacity:0;
@@ -333,16 +448,16 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
 .toast.goal{background:linear-gradient(135deg,rgba(255,176,32,.96),rgba(217,119,6,.96));box-shadow:0 14px 40px -10px rgba(255,176,32,.7)}
 
-/* Confetti canvas */
+/* ===== CONFETTI ===== */
 #confetti{position:fixed;inset:0;z-index:9998;pointer-events:none;display:none}
 #confetti.on{display:block}
 
-/* Pull to refresh */
+/* ===== PULL TO REFRESH ===== */
 .ptr{position:fixed;top:calc(var(--hdr-h) + env(safe-area-inset-top));left:50%;transform:translateX(-50%) translateY(-60px);
   z-index:880;padding:8px 16px;border-radius:999px;background:var(--glass);border:1px solid var(--stroke-2);
   backdrop-filter:blur(12px);font-size:11px;color:var(--text-2);font-weight:600;transition:transform .3s var(--ease-out);display:flex;align-items:center;gap:6px}
 .ptr.on{transform:translateX(-50%) translateY(8px)}
-.ptr svg{width:14px;height:14px;stroke:var(--lime);stroke-width:2.4;fill:none;transition:transform .3s}
+.ptr svg{width:14px;height:14px;stroke:var(--lime);stroke-width:2.4;fill:none}
 .ptr.spin svg{animation:spin .8s linear infinite}
 
 @media (min-width:480px){
@@ -419,15 +534,9 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 
 <section class="page" id="page-score">
   <div style="padding:16px 14px 8px"><h1 style="font-size:22px;font-weight:800">আজকের স্কোর</h1></div>
-  <div class="stats-row" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 14px 16px">
-    <div class="stat-card" style="padding:15px;border-radius:16px;background:var(--glass);border:1px solid var(--stroke)">
-      <small style="font-size:9.5px;color:var(--text-3);font-family:var(--font-en);font-weight:700;text-transform:uppercase">Live Now</small>
-      <b id="statLive" style="display:block;font-size:24px;font-weight:900;font-family:var(--font-en);margin-top:5px;color:var(--crimson)">0</b>
-    </div>
-    <div class="stat-card" style="padding:15px;border-radius:16px;background:var(--glass);border:1px solid var(--stroke)">
-      <small style="font-size:9.5px;color:var(--text-3);font-family:var(--font-en);font-weight:700;text-transform:uppercase">Total Today</small>
-      <b id="statTotal" style="display:block;font-size:24px;font-weight:900;font-family:var(--font-en);margin-top:5px;color:var(--lime)">0</b>
-    </div>
+  <div class="stats-row">
+    <div class="stat-card live"><small>Live Now</small><b id="statLive">0</b></div>
+    <div class="stat-card gold"><small>Total Today</small><b id="statTotal">0</b></div>
   </div>
   <div id="scoreList"></div>
 </section>
@@ -447,26 +556,30 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
     </div>
   </div>
   <div class="menu-list">
-    <div class="menu-item">
+    <button class="menu-item" id="btnFavs">
       <span class="mi-ic amber"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span>
       <span class="mi-text"><b>প্রিয় টিম</b><span id="favCount">0টি টিম সেভ করা আছে</span></span>
-    </div>
-    <div class="menu-item">
-      <span class="mi-ic violet"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 1 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg></span>
+      <svg class="mi-arrow" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <div class="menu-item" style="cursor:default">
+      <span class="mi-ic violet"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 1 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
       <span class="mi-text"><b>ম্যাচ নোটিফিকেশন</b><span id="notiStatus">বন্ধ আছে</span></span>
       <span class="mi-toggle"><input type="checkbox" id="notiToggle"></span>
     </div>
-    <button class="menu-item" id="clearFavBtn">
+    <button class="menu-item" id="btnClearFavs">
       <span class="mi-ic pink"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></span>
       <span class="mi-text"><b>প্রিয় টিম মুছুন</b><span>সব প্রিয় টিম সরিয়ে ফেলুন</span></span>
+      <svg class="mi-arrow" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
     </button>
-    <button class="menu-item" id="installBtn2">
+    <button class="menu-item" id="btnInstall2">
       <span class="mi-ic gold"><svg viewBox="0 0 24 24"><path d="M12 2v16M6 12l6 6 6-6M4 22h16"/></svg></span>
       <span class="mi-text"><b>অ্যাপ ইনস্টল করুন</b><span>ফোনে অ্যাপের মতো চালান</span></span>
+      <svg class="mi-arrow" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
     </button>
-    <button class="menu-item">
+    <button class="menu-item" id="btnAbout">
       <span class="mi-ic pink"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg></span>
-      <span class="mi-text"><b>অ্যাপ সম্পর্কে</b><span>v12.0 Ultimate</span></span>
+      <span class="mi-text"><b>অ্যাপ সম্পর্কে</b><span>v13.0 Ultimate Premium</span></span>
+      <svg class="mi-arrow" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
     </button>
   </div>
 </section>
@@ -488,7 +601,9 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 <div class="toast" id="toast"></div>
 
 <script>
-/* ===== Constants ===== */
+/* ================================================================
+   আমার খেলাঘর v13.0 — Ultimate Premium
+   ================================================================ */
 const BSD_TOKEN='e6ca04fc64a5d1204afb53a846aec1b8d2627a33';
 const BSD_HOST='https://sports.bzzoiro.com';
 const CRICKET_KEY='959873cd-fb5e-4f78-8906-dae707b50a5e';
@@ -502,17 +617,16 @@ const state={sport:'football',filter:'all',page:'home',football:[],cricket:[],le
 const $=s=>document.querySelector(s);
 const $$=s=>Array.from(document.querySelectorAll(s));
 
-/* ===== Haptic ===== */
 function haptic(ms=8){ try{ if(navigator.vibrate) navigator.vibrate(ms); }catch(e){} }
 
-/* ===== Favorites ===== */
+/* Favorites */
 function getFavs(){ try{ return JSON.parse(localStorage.getItem('favs')||'[]'); }catch{ return []; } }
 function saveFavs(a){ localStorage.setItem('favs',JSON.stringify(a)); updateFavCount(); }
 function isFav(n){ if(!n) return false; return getFavs().some(f=>f.toLowerCase()===n.toLowerCase()); }
 function updateFavCount(){ const el=$('#favCount'); if(el) el.textContent=getFavs().length+'টি টিম সেভ করা আছে'; }
 function isFavMatch(m){ return isFav(m.home)||isFav(m.away)||(m.teams||[]).some(t=>isFav(t)); }
 
-/* ===== Connection ===== */
+/* Connection */
 let lastSuccessAt=0;
 function setConnection(s){
   state.connection=s;
@@ -526,7 +640,6 @@ function reportSuccess(){ state.consecutiveFails=0; lastSuccessAt=Date.now(); if
 function reportFailure(){ if(lastSuccessAt&&(Date.now()-lastSuccessAt)<90000) return; state.consecutiveFails++; if(state.consecutiveFails>=15) setConnection('offline'); }
 window.addEventListener('online',()=>{ state.consecutiveFails=0; setConnection('checking'); showStatus('✅ সংযোগ ফিরেছে','ok'); loadFootball(); loadCricket(); });
 
-/* ===== Fetch ===== */
 async function fetchWithTimeout(url,opts={},ms=FETCH_TIMEOUT){
   const c=new AbortController(); const t=setTimeout(()=>c.abort(),ms);
   try{ return await fetch(url,{...opts,signal:c.signal}); }
@@ -534,7 +647,7 @@ async function fetchWithTimeout(url,opts={},ms=FETCH_TIMEOUT){
   finally{ clearTimeout(t); }
 }
 
-/* ===== Notifications ===== */
+/* Notifications */
 let notiEnabled=localStorage.getItem('notiEnabled')==='1';
 function hasNotiPermission(){ return 'Notification' in window && Notification.permission==='granted'; }
 async function enableNotifications(){
@@ -545,15 +658,9 @@ async function enableNotifications(){
 }
 function sendNotification(title,body,tag){ if(!notiEnabled||!hasNotiPermission()) return; try{ new Notification(title,{body,tag:tag||'match'}); }catch(e){} }
 
-/* ===== Toast ===== */
-function toast(msg,type='ok'){
-  const el=$('#toast'); if(!el) return;
-  el.textContent=msg;
-  el.className='toast on'+(type==='goal'?' goal':'');
-  setTimeout(()=>el.classList.remove('on'),4200);
-}
+function toast(msg,type='ok'){ const el=$('#toast'); if(!el) return; el.textContent=msg; el.className='toast on'+(type==='goal'?' goal':''); setTimeout(()=>el.classList.remove('on'),4200); }
 
-/* ===== Confetti ===== */
+/* Confetti */
 function confetti(){
   const cvs=$('#confetti'); if(!cvs) return;
   cvs.classList.add('on');
@@ -564,15 +671,7 @@ function confetti(){
   const W=window.innerWidth,H=window.innerHeight;
   const colors=['#FFD86B','#FF3B5C','#D4FF3A','#22D3EE','#A855F7','#FFB020'];
   const pieces=[];
-  for(let i=0;i<120;i++){
-    pieces.push({
-      x:Math.random()*W, y:-20-Math.random()*H*0.4,
-      vx:(Math.random()-.5)*3, vy:3+Math.random()*5,
-      size:6+Math.random()*8, color:colors[i%colors.length],
-      rot:Math.random()*Math.PI*2, vr:(Math.random()-.5)*0.3,
-      shape:Math.random()>0.5?'rect':'circle'
-    });
-  }
+  for(let i=0;i<120;i++){ pieces.push({x:Math.random()*W,y:-20-Math.random()*H*0.4,vx:(Math.random()-.5)*3,vy:3+Math.random()*5,size:6+Math.random()*8,color:colors[i%colors.length],rot:Math.random()*Math.PI*2,vr:(Math.random()-.5)*0.3,shape:Math.random()>0.5?'rect':'circle'}); }
   let start=Date.now();
   function loop(){
     const elapsed=Date.now()-start;
@@ -582,8 +681,7 @@ function confetti(){
       p.x+=p.vx; p.y+=p.vy; p.vy+=0.15; p.rot+=p.vr;
       if(p.y<H+30){
         alive++;
-        ctx.save();
-        ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+        ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
         ctx.fillStyle=p.color; ctx.globalAlpha=Math.max(0,1-elapsed/2500);
         if(p.shape==='rect') ctx.fillRect(-p.size/2,-p.size/4,p.size,p.size/2);
         else { ctx.beginPath(); ctx.arc(0,0,p.size/2,0,Math.PI*2); ctx.fill(); }
@@ -596,7 +694,7 @@ function confetti(){
   loop();
 }
 
-/* ===== Goals detection ===== */
+/* Goals detection */
 function getScoresSnapshot(){ try{ return JSON.parse(localStorage.getItem('lastScores')||'{}'); }catch{ return {}; } }
 function saveScoresSnapshot(o){ localStorage.setItem('lastScores',JSON.stringify(o)); }
 function detectGoals(matches){
@@ -619,7 +717,7 @@ function detectGoals(matches){
   saveScoresSnapshot(curr);
 }
 
-/* ===== Helpers ===== */
+/* Helpers */
 function hashStr(s){ let h=0; for(let i=0;i<s.length;i++) h=((h<<5)-h)+s.charCodeAt(i)|0; return Math.abs(h); }
 function colorFor(n){ return COLORS[hashStr(n||'')%COLORS.length]; }
 function initials(n){
@@ -636,13 +734,14 @@ function initials(n){
 }
 function crestHTML(url,name,size){
   const cls=size==='lg'?'crest-lg':'crest-sm';
-  const [c1,c2]=colorFor(name||'');
-  const fallback='<div class="'+cls+' crest-premium" style="--c1:'+c1+';--c2:'+c2+'"><span>'+initials(name)+'</span></div>';
   if(url){
+    const [c1,c2]=colorFor(name||'');
+    const fallback='<div class="'+cls+' crest-premium" style="--c1:'+c1+';--c2:'+c2+'"><span>'+initials(name)+'</span></div>';
     const b64=btoa(unescape(encodeURIComponent(fallback))).replace(/=/g,'');
     return '<div class="'+cls+' crest-img"><img src="'+url+'" alt="'+escapeHtml(name||'')+'" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentElement.outerHTML=atob(\''+b64+'\')"></div>';
   }
-  return fallback;
+  const [c1,c2]=colorFor(name||'');
+  return '<div class="'+cls+' crest-premium" style="--c1:'+c1+';--c2:'+c2+'"><span>'+initials(name)+'</span></div>';
 }
 function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function formatTime(u){ try{ return new Date(u).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',hour12:false}); }catch{ return '--:--'; } }
@@ -672,11 +771,9 @@ function isInternational(m){
 let statusTimer=null;
 function showStatus(text,type='ok'){
   let el=$('#statusBar');
-  if(!el){
-    el=document.createElement('div'); el.id='statusBar';
+  if(!el){ el=document.createElement('div'); el.id='statusBar';
     el.style.cssText='position:fixed;top:calc(var(--hdr-h) + env(safe-area-inset-top) + 6px);left:50%;transform:translateX(-50%);z-index:850;padding:5px 13px;border-radius:999px;font-size:10.5px;font-weight:700;font-family:var(--font-en);background:rgba(0,0,0,.8);border:1px solid rgba(255,255,255,.12);color:#6E6E8E;backdrop-filter:blur(12px);pointer-events:none;opacity:0;transition:opacity .35s;white-space:nowrap;max-width:90vw;overflow:hidden;text-overflow:ellipsis';
-    document.body.appendChild(el);
-  }
+    document.body.appendChild(el); }
   el.textContent=text; el.style.opacity='1';
   el.style.color=type==='ok'?'#D4FF3A':type==='err'?'#FF8DA3':'#6E6E8E';
   clearTimeout(statusTimer); statusTimer=setTimeout(()=>el.style.opacity='0',3800);
@@ -684,11 +781,9 @@ function showStatus(text,type='ok'){
 
 function skeleton(){ return Array(2).fill('<div class="sk-group"><div class="sk-hd"></div><div class="sk-row"><div><div class="sk-line t"></div></div><div><div class="sk-line n1"></div><div class="sk-line n2"></div></div></div><div class="sk-row"><div><div class="sk-line t"></div></div><div><div class="sk-line n1"></div><div class="sk-line n2"></div></div></div></div>').join(''); }
 function emptyState(msg,sub){ return '<div class="empty"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M9 16h6"/></svg></div><h3>'+(msg||'কোনো ম্যাচ নেই')+'</h3><p>'+(sub||'')+'</p></div>'; }
-function errorCard(title,desc,retry){
-  return '<div class="err-card"><div class="err-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg></div><div class="err-title">'+title+'</div><div class="err-desc">'+desc+'</div>'+(retry?'<div class="err-actions"><button class="err-btn primary" onclick="'+retry+'"><svg viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></svg>আবার চেষ্টা করুন</button></div>':'')+'</div>';
-}
+function errorCard(t,d,r){ return '<div class="err-card"><div class="err-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg></div><div class="err-title">'+t+'</div><div class="err-desc">'+d+'</div>'+(r?'<div class="err-actions"><button class="err-btn primary" onclick="'+r+'"><svg viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></svg>আবার চেষ্টা করুন</button></div>':'')+'</div>'; }
 
-/* ===== BSD API ===== */
+/* BSD API */
 async function bsd(path){
   const res=await fetchWithTimeout(BSD_HOST+path,{headers:{'Authorization':'Token '+BSD_TOKEN}});
   if(!res.ok) throw new Error('HTTP '+res.status);
@@ -698,17 +793,15 @@ async function loadLeagues(){
   try{
     const d=await bsd('/api/v2/leagues/?limit=200');
     (d.results||[]).forEach(l=>{ state.leagues[l.id]={name:l.name,country:l.country||''}; });
-  }catch(e){ console.warn('Leagues load failed',e); }
+  }catch(e){ console.warn('Leagues failed',e); }
 }
 async function loadTeamInfo(id){
   if(state.teams[id]) return state.teams[id];
-  try{
-    const d=await bsd('/api/v2/teams/'+id+'/');
-    state.teams[id]=d; return d;
-  }catch(e){ return null; }
+  try{ const d=await bsd('/api/v2/teams/'+id+'/'); state.teams[id]=d; return d; }
+  catch(e){ return null; }
 }
 
-/* ===== Football loading ===== */
+/* Load Football */
 async function loadFootball(){
   if(!state.football.length){
     $('#footballLive').innerHTML=skeleton();
@@ -739,9 +832,8 @@ async function loadFootball(){
       showStatus('⚽ '+state.football.length+' ম্যাচ · 🔴 '+liveCount+' · 🌍 '+intlCount,'ok');
     }
   }catch(err){
-    console.error('[football]',err);
-    reportFailure();
-    if(state.football.length){ showStatus('পুরনো ডেটা দেখানো হচ্ছে','err'); }
+    console.error('[football]',err); reportFailure();
+    if(state.football.length){ showStatus('পুরনো ডেটা','err'); }
     else {
       $('#footballHero').innerHTML=''; $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML='';
       $('#footballUpcoming').innerHTML=errorCard('ফুটবল ডেটা লোড হয়নি', err.message||'', 'window.__retryFootball()');
@@ -764,27 +856,16 @@ function normalizeFootball(e){
   let minute='';
   if(cat==='live'){ minute=e.current_minute?e.current_minute+"'":(e.period||'LIVE'); }
   const league=state.leagues[e.league_id]||{};
-  const obj={
-    id:'fb-'+e.id, cat, live:cat==='live', minute, utc, timeStr:utc, dateKey,
-    comp:league.name||'Football', area:league.country||'',
-    home:e.home_team||'Home', away:e.away_team||'Away',
-    homeFull:e.home_team||'Home', awayFull:e.away_team||'Away',
-    homeCrest:'', awayCrest:'', homeId:e.home_team_id, awayId:e.away_team_id,
-    hs, as, status:e.status||'', raw:e
-  };
+  const obj={id:'fb-'+e.id,cat,live:cat==='live',minute,utc,timeStr:utc,dateKey,comp:league.name||'Football',area:league.country||'',home:e.home_team||'Home',away:e.away_team||'Away',homeFull:e.home_team||'Home',awayFull:e.away_team||'Away',homeCrest:'',awayCrest:'',homeId:e.home_team_id,awayId:e.away_team_id,hs,as,status:e.status||'',raw:e};
   obj.intl=isInternational(obj);
   return obj;
 }
 
-/* ===== Render Football ===== */
+/* Render Football */
 function applySearch(list){
   if(!state.search) return list;
   const q=state.search.toLowerCase();
-  return list.filter(m =>
-    (m.home||'').toLowerCase().includes(q) ||
-    (m.away||'').toLowerCase().includes(q) ||
-    (m.comp||'').toLowerCase().includes(q)
-  );
+  return list.filter(m=>(m.home||'').toLowerCase().includes(q)||(m.away||'').toLowerCase().includes(q)||(m.comp||'').toLowerCase().includes(q));
 }
 function renderFootball(){
   const list=applySearch(state.football);
@@ -793,65 +874,27 @@ function renderFootball(){
   if(state.filter==='international') filtered=list.filter(m=>m.intl);
   else if(state.filter==='favorites') filtered=list.filter(m=>isFavMatch(m));
   else filtered=list.filter(m=>state.filter==='all'||m.cat===state.filter);
-
   const tk=todayKey();
   const hero=filtered.find(m=>m.live)||filtered.find(m=>isFavMatch(m)&&m.cat==='upcoming'&&m.dateKey===tk)||filtered.find(m=>m.intl&&m.cat==='upcoming'&&m.dateKey===tk)||filtered.find(m=>m.cat==='upcoming'&&m.dateKey===tk)||filtered.find(m=>m.cat==='upcoming')||filtered.find(m=>m.cat==='finished');
   $('#footballHero').innerHTML=hero?renderHero(hero):'';
-
   if(state.filter==='favorites'){
-    if(!filtered.length){
-      $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML='';
-      $('#footballUpcoming').innerHTML=emptyState('⭐ কোনো প্রিয় টিম নেই','যেকোনো ম্যাচে ⭐ চিহ্নে চাপ দিয়ে টিম সেভ করুন');
-      $('#footballFinished').innerHTML=''; bindClicks(); return;
-    }
-    const live=filtered.filter(m=>m.cat==='live');
-    const up=filtered.filter(m=>m.cat==='upcoming');
-    const fin=filtered.filter(m=>m.cat==='finished');
-    $('#footballIntl').innerHTML='';
-    $('#footballLive').innerHTML=live.length?sectionFav(live,'⭐ প্রিয় টিমের লাইভ ম্যাচ'):'';
-    $('#footballUpcoming').innerHTML=up.length?sectionFavByDate(up,'⭐ প্রিয় টিমের আসন্ন ম্যাচ','asc'):'';
-    $('#footballFinished').innerHTML=fin.length?sectionFavByDate(fin,'⭐ প্রিয় টিমের শেষ ম্যাচ','desc'):'';
-    bindClicks(); return;
+    if(!filtered.length){ $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML=''; $('#footballUpcoming').innerHTML=emptyState('⭐ কোনো প্রিয় টিম নেই','যেকোনো ম্যাচে ⭐ চিহ্নে চাপ দিয়ে টিম সেভ করুন'); $('#footballFinished').innerHTML=''; bindClicks(); return; }
+    const live=filtered.filter(m=>m.cat==='live'); const up=filtered.filter(m=>m.cat==='upcoming'); const fin=filtered.filter(m=>m.cat==='finished');
+    $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML=live.length?sectionFav(live,'⭐ প্রিয় লাইভ'):''; $('#footballUpcoming').innerHTML=up.length?sectionFavByDate(up,'⭐ প্রিয় আসন্ন','asc'):''; $('#footballFinished').innerHTML=fin.length?sectionFavByDate(fin,'⭐ প্রিয় শেষ','desc'):''; bindClicks(); return;
   }
-
   if(state.filter==='international'){
-    if(!filtered.length){
-      $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML='';
-      $('#footballUpcoming').innerHTML=emptyState('🌍 কোনো আন্তর্জাতিক ম্যাচ নেই','');
-      $('#footballFinished').innerHTML=''; bindClicks(); return;
-    }
-    const live=filtered.filter(m=>m.cat==='live');
-    const up=filtered.filter(m=>m.cat==='upcoming');
-    const fin=filtered.filter(m=>m.cat==='finished');
-    $('#footballIntl').innerHTML='';
-    $('#footballLive').innerHTML=live.length?sectionIntl(live,'🌍 লাইভ আন্তর্জাতিক'):'';
-    $('#footballUpcoming').innerHTML=up.length?sectionIntlByDate(up,'🌍 আসন্ন আন্তর্জাতিক','asc'):'';
-    $('#footballFinished').innerHTML=fin.length?sectionIntlByDate(fin,'🌍 শেষ হওয়া আন্তর্জাতিক','desc'):'';
-    bindClicks(); return;
+    if(!filtered.length){ $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML=''; $('#footballUpcoming').innerHTML=emptyState('🌍 আন্তর্জাতিক ম্যাচ নেই',''); $('#footballFinished').innerHTML=''; bindClicks(); return; }
+    const live=filtered.filter(m=>m.cat==='live'); const up=filtered.filter(m=>m.cat==='upcoming'); const fin=filtered.filter(m=>m.cat==='finished');
+    $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML=live.length?sectionIntl(live,'🌍 লাইভ আন্তর্জাতিক'):''; $('#footballUpcoming').innerHTML=up.length?sectionIntlByDate(up,'🌍 আসন্ন আন্তর্জাতিক','asc'):''; $('#footballFinished').innerHTML=fin.length?sectionIntlByDate(fin,'🌍 শেষ আন্তর্জাতিক','desc'):''; bindClicks(); return;
   }
-
   if(state.filter==='all'){
-    const intlMatches=list.filter(m=>m.intl).sort((a,b)=>{
-      const r={live:0,upcoming:1,finished:2};
-      if(r[a.cat]!==r[b.cat]) return r[a.cat]-r[b.cat];
-      return new Date(a.utc||0)-new Date(b.utc||0);
-    });
+    const intlMatches=list.filter(m=>m.intl).sort((a,b)=>{ const r={live:0,upcoming:1,finished:2}; if(r[a.cat]!==r[b.cat]) return r[a.cat]-r[b.cat]; return new Date(a.utc||0)-new Date(b.utc||0); });
     $('#footballIntl').innerHTML=intlMatches.length?sectionIntlTop(intlMatches):'';
-  } else {
-    $('#footballIntl').innerHTML='';
-  }
-
+  } else { $('#footballIntl').innerHTML=''; }
   if(!filtered.length){
-    const map={
-      live:emptyState('এই মুহূর্তে লাইভ ম্যাচ নেই','পরে আবার চেষ্টা করুন'),
-      upcoming:emptyState('আসন্ন ম্যাচ নেই','এই তারিখে ফিক্সচার নেই'),
-      finished:emptyState('শেষ ম্যাচ নেই','এই তারিখে ম্যাচ হয়নি')
-    };
-    $('#footballLive').innerHTML=''; $('#footballUpcoming').innerHTML='';
-    $('#footballFinished').innerHTML=map[state.filter]||emptyState();
-    bindClicks(); return;
+    const map={ live:emptyState('এই মুহূর্তে লাইভ ম্যাচ নেই',''), upcoming:emptyState('আসন্ন ম্যাচ নেই',''), finished:emptyState('শেষ ম্যাচ নেই','') };
+    $('#footballLive').innerHTML=''; $('#footballUpcoming').innerHTML=''; $('#footballFinished').innerHTML=map[state.filter]||emptyState(); bindClicks(); return;
   }
-
   const by={live:filtered.filter(m=>m.cat==='live'),upcoming:filtered.filter(m=>m.cat==='upcoming'),finished:filtered.filter(m=>m.cat==='finished')};
   const showing=state.filter==='all'?['live','upcoming','finished']:[state.filter];
   $('#footballLive').innerHTML=showing.includes('live')?sectionLive(by.live,'লাইভ ম্যাচ'):'';
@@ -860,20 +903,17 @@ function renderFootball(){
   bindClicks();
 }
 
-function sectionIntlTop(matches){
-  const show=matches.slice(0,6); const rows=show.map(renderRow).join('');
-  const more=matches.length>6?'<div style="text-align:center;padding:10px;font-size:11px;color:var(--text-3);font-family:var(--font-en);border-top:1px solid var(--stroke)">আরও '+(matches.length-6)+'টি ম্যাচ — 🌍 ফিল্টারে ট্যাপ করুন</div>':'';
-  return '<div class="sec-hd"><h2><span class="globe">🌍</span>আন্তর্জাতিক ম্যাচ</h2><a>'+matches.length+' ম্যাচ</a></div><div class="league-group intl">'+rows+more+'</div>';
+function sectionIntlTop(m){
+  const show=m.slice(0,6); const rows=show.map(renderRow).join('');
+  const more=m.length>6?'<div style="text-align:center;padding:10px;font-size:11px;color:var(--text-3);font-family:var(--font-en);border-top:1px solid var(--stroke)">আরও '+(m.length-6)+'টি ম্যাচ — 🌍 ফিল্টারে ট্যাপ করুন</div>':'';
+  return '<div class="sec-hd"><h2><span class="globe">🌍</span>আন্তর্জাতিক ম্যাচ</h2><a>'+m.length+' ম্যাচ</a></div><div class="league-group intl">'+rows+more+'</div>';
 }
 function sectionIntl(m,t){ if(!m.length) return ''; return '<div class="sec-hd intl-hd"><h2><span class="globe">🌍</span>'+t+'</h2><a>'+m.length+'</a></div><div class="league-group intl">'+m.map(renderRow).join('')+'</div>'; }
 function sectionIntlByDate(m,t,o){
   if(!m.length) return '';
   const g={}; m.forEach(x=>{ (g[x.dateKey]||=[]).push(x); });
   let d=Object.keys(g).sort(); if(o==='desc') d.reverse();
-  const html=d.map(dk=>{
-    const ms=g[dk].slice().sort((a,b)=>(a.comp||'').localeCompare(b.comp||''));
-    return '<div class="league-group intl"><div class="league-hd"><div class="league-flag">🌍</div><div class="league-name">'+escapeHtml(relDate(dk))+'<small>'+dk.slice(5).replace('-','/')+'</small></div><span class="league-count">'+ms.length+'</span></div>'+ms.map(renderRow).join('')+'</div>';
-  }).join('');
+  const html=d.map(dk=>{ const ms=g[dk].slice().sort((a,b)=>(a.comp||'').localeCompare(b.comp||'')); return '<div class="league-group intl"><div class="league-hd"><div class="league-flag">🌍</div><div class="league-name">'+escapeHtml(relDate(dk))+'<small>'+dk.slice(5).replace('-','/')+'</small></div><span class="league-count">'+ms.length+'</span></div>'+ms.map(renderRow).join('')+'</div>'; }).join('');
   return '<div class="sec-hd intl-hd"><h2>'+t+'</h2><a>'+m.length+' ম্যাচ</a></div>'+html;
 }
 function sectionFav(m,t){ if(!m.length) return ''; return '<div class="sec-hd fav-hd"><h2>⭐ '+t+'</h2><a>'+m.length+'</a></div><div class="league-group fav">'+m.map(renderRow).join('')+'</div>'; }
@@ -881,10 +921,7 @@ function sectionFavByDate(m,t,o){
   if(!m.length) return '';
   const g={}; m.forEach(x=>{ (g[x.dateKey]||=[]).push(x); });
   let d=Object.keys(g).sort(); if(o==='desc') d.reverse();
-  const html=d.map(dk=>{
-    const ms=g[dk].slice().sort((a,b)=>(a.comp||'').localeCompare(b.comp||''));
-    return '<div class="league-group fav"><div class="league-hd"><div class="league-flag">⭐</div><div class="league-name">'+escapeHtml(relDate(dk))+'<small>'+dk.slice(5).replace('-','/')+'</small></div><span class="league-count">'+ms.length+'</span></div>'+ms.map(renderRow).join('')+'</div>';
-  }).join('');
+  const html=d.map(dk=>{ const ms=g[dk].slice().sort((a,b)=>(a.comp||'').localeCompare(b.comp||'')); return '<div class="league-group fav"><div class="league-hd"><div class="league-flag">⭐</div><div class="league-name">'+escapeHtml(relDate(dk))+'<small>'+dk.slice(5).replace('-','/')+'</small></div><span class="league-count">'+ms.length+'</span></div>'+ms.map(renderRow).join('')+'</div>'; }).join('');
   return '<div class="sec-hd fav-hd"><h2>'+t+'</h2><a>'+m.length+' ম্যাচ</a></div>'+html;
 }
 
@@ -892,28 +929,14 @@ function renderHero(m){
   const isLive=m.live;
   const scoreOrTime=(isLive||m.cat==='finished')?'<div class="num"><span>'+(m.hs??0)+'</span><i>–</i><span>'+(m.as??0)+'</span></div>':'<div class="vs">'+formatTime(m.timeStr)+'</div>';
   const fav=isFavMatch(m)?'on':'';
-  return '<div class="hero">'+
-    '<button class="hero-star '+fav+'" data-fav-home="'+escapeHtml(m.home)+'" data-fav-away="'+escapeHtml(m.away)+'" onclick="event.stopPropagation();window.__toggleFav(this)"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></button>'+
-    '<div class="hero-in"><div class="hero-top">'+
-    '<span class="hero-tag">'+(isLive?'<span class="dot"></span>LIVE':m.cat==='finished'?'FULL TIME':'UPCOMING')+(m.intl?' · 🌍':'')+'</span>'+
-    (isLive&&m.minute?'<span class="hero-min"><b>'+escapeHtml(m.minute)+'</b></span>':'<span class="hero-min">'+relDate(m.dateKey)+'</span>')+
-    '</div>'+
-    '<div class="hero-comp">'+escapeHtml(m.comp)+(m.area?' · '+escapeHtml(m.area):'')+'</div>'+
-    '<div class="hero-teams">'+
-    '<div class="hero-team" data-team-id="'+m.homeId+'" data-team-name="'+escapeHtml(m.home)+'">'+crestHTML(m.homeCrest,m.home,'lg')+'<div class="name">'+escapeHtml(m.home)+'</div></div>'+
-    '<div class="hero-score">'+scoreOrTime+'</div>'+
-    '<div class="hero-team" data-team-id="'+m.awayId+'" data-team-name="'+escapeHtml(m.away)+'">'+crestHTML(m.awayCrest,m.away,'lg')+'<div class="name">'+escapeHtml(m.away)+'</div></div>'+
-    '</div></div></div>';
+  return '<div class="hero"><button class="hero-star '+fav+'" data-fav-home="'+escapeHtml(m.home)+'" data-fav-away="'+escapeHtml(m.away)+'" onclick="event.stopPropagation();window.__toggleFav(this)"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></button><div class="hero-in"><div class="hero-top"><span class="hero-tag">'+(isLive?'<span class="dot"></span>LIVE':m.cat==='finished'?'FULL TIME':'UPCOMING')+(m.intl?' · 🌍':'')+'</span>'+(isLive&&m.minute?'<span class="hero-min"><b>'+escapeHtml(m.minute)+'</b></span>':'<span class="hero-min">'+relDate(m.dateKey)+'</span>')+'</div><div class="hero-comp">'+escapeHtml(m.comp)+(m.area?' · '+escapeHtml(m.area):'')+'</div><div class="hero-teams"><div class="hero-team">'+crestHTML(m.homeCrest,m.home,'lg')+'<div class="name">'+escapeHtml(m.home)+'</div></div><div class="hero-score">'+scoreOrTime+'</div><div class="hero-team">'+crestHTML(m.awayCrest,m.away,'lg')+'<div class="name">'+escapeHtml(m.away)+'</div></div></div></div></div>';
 }
 function sectionLive(m,t){ if(!m.length) return ''; return '<div class="sec-hd"><h2><span class="pulse"></span>'+t+'</h2><a>'+m.length+' live</a></div><div class="league-group">'+m.map(renderRow).join('')+'</div>'; }
 function sectionByDate(m,t,o){
   if(!m.length) return '';
   const g={}; m.forEach(x=>{ (g[x.dateKey]||=[]).push(x); });
   let d=Object.keys(g).sort(); if(o==='desc') d.reverse();
-  const html=d.map(dk=>{
-    const ms=g[dk].slice().sort((a,b)=>(a.comp||'').localeCompare(b.comp||''));
-    return '<div class="league-group"><div class="league-hd"><div class="league-flag">📅</div><div class="league-name">'+escapeHtml(relDate(dk))+'<small>'+dk.slice(5).replace('-','/')+'</small></div><span class="league-count">'+ms.length+'</span></div>'+ms.map(renderRow).join('')+'</div>';
-  }).join('');
+  const html=d.map(dk=>{ const ms=g[dk].slice().sort((a,b)=>(a.comp||'').localeCompare(b.comp||'')); return '<div class="league-group"><div class="league-hd"><div class="league-flag">📅</div><div class="league-name">'+escapeHtml(relDate(dk))+'<small>'+dk.slice(5).replace('-','/')+'</small></div><span class="league-count">'+ms.length+'</span></div>'+ms.map(renderRow).join('')+'</div>'; }).join('');
   return '<div class="sec-hd"><h2>'+t+'</h2><a>'+m.length+' ম্যাচ</a></div>'+html;
 }
 
@@ -930,15 +953,8 @@ function renderRow(m){
   else if(m.dateKey===todayKey()){ timeCol='<span class="tm">'+formatTime(m.timeStr)+'</span><span class="st">Today</span>'; }
   else { timeCol='<span class="tm date">'+relDate(m.dateKey)+'</span><span class="st">'+formatTime(m.timeStr)+'</span>'; }
   const fav=isFavMatch(m)?'on':'';
-  const delay=Math.min(matchIdx*15, 400);
-  return '<div class="match '+(m.live?'live':'')+' '+(m.intl?'intl-row':'')+'" data-id="'+m.id+'" data-sport="football" style="animation-delay:'+delay+'ms">'+
-    '<div class="match-time">'+timeCol+'</div>'+
-    '<div class="match-body">'+
-    '<div class="mteam '+hWin+hLose+'" data-team-id="'+m.homeId+'" data-team-name="'+escapeHtml(m.home)+'">'+crestHTML(m.homeCrest,m.home,'sm')+'<span class="tn">'+escapeHtml(m.home)+'</span><span class="ts">'+(m.hs??'–')+'</span></div>'+
-    '<div class="mteam '+aWin+aLose+'" data-team-id="'+m.awayId+'" data-team-name="'+escapeHtml(m.away)+'">'+crestHTML(m.awayCrest,m.away,'sm')+'<span class="tn">'+escapeHtml(m.away)+'</span><span class="ts">'+(m.as??'–')+'</span></div>'+
-    '</div>'+
-    '<button class="match-star '+fav+'" data-fav-home="'+escapeHtml(m.home)+'" data-fav-away="'+escapeHtml(m.away)+'" onclick="event.stopPropagation();window.__toggleFav(this)"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></button>'+
-    '</div>';
+  const delay=Math.min(matchIdx*15,400);
+  return '<div class="match '+(m.live?'live':'')+' '+(m.intl?'intl-row':'')+'" data-id="'+m.id+'" data-sport="football" style="animation-delay:'+delay+'ms"><div class="match-time">'+timeCol+'</div><div class="match-body"><div class="mteam '+hWin+hLose+'">'+crestHTML(m.homeCrest,m.home,'sm')+'<span class="tn">'+escapeHtml(m.home)+'</span><span class="ts">'+(m.hs??'–')+'</span></div><div class="mteam '+aWin+aLose+'">'+crestHTML(m.awayCrest,m.away,'sm')+'<span class="tn">'+escapeHtml(m.away)+'</span><span class="ts">'+(m.as??'–')+'</span></div></div><button class="match-star '+fav+'" data-fav-home="'+escapeHtml(m.home)+'" data-fav-away="'+escapeHtml(m.away)+'" onclick="event.stopPropagation();window.__toggleFav(this)"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></button></div>';
 }
 window.__toggleFav=function(el){
   haptic();
@@ -948,18 +964,15 @@ window.__toggleFav=function(el){
     saveFavs(getFavs().filter(f=>f.toLowerCase()!==home.toLowerCase()&&f.toLowerCase()!==away.toLowerCase()));
     showStatus('⭐ '+home+' ও '+away+' সরানো হয়েছে','');
   } else {
-    let favs=getFavs();
-    if(!isFav(home)) favs.push(home);
-    if(!isFav(away)) favs.push(away);
-    saveFavs(favs);
-    showStatus('⭐ '+home+' ও '+away+' সেভ হয়েছে','ok');
+    let favs=getFavs(); if(!isFav(home)) favs.push(home); if(!isFav(away)) favs.push(away);
+    saveFavs(favs); showStatus('⭐ '+home+' ও '+away+' সেভ হয়েছে','ok');
   }
   $$('[data-fav-home]').forEach(b=>b.classList.toggle('on',isFav(b.dataset.favHome)||isFav(b.dataset.favAway)));
   updateFavCount();
   if(state.filter==='favorites') renderFootball();
 };
 
-/* ===== Cricket ===== */
+/* Cricket */
 async function loadCricket(){
   if(!state.cricket.length){ $('#cricketLive').innerHTML=skeleton(); }
   try{
@@ -970,22 +983,16 @@ async function loadCricket(){
     const newData=(data.data||[]).map(normalizeCricket);
     if(newData.length>0||state.cricket.length===0) state.cricket=newData;
     if(newData.length>0) reportSuccess();
-    if(!state.cricket.length){
-      $('#cricketHero').innerHTML=''; $('#cricketLive').innerHTML='';
-      $('#cricketUpcoming').innerHTML=''; $('#cricketFinished').innerHTML=emptyState('ক্রিকেট ম্যাচ নেই','');
-    } else { renderCricket(); showStatus('🏏 '+state.cricket.length+' ক্রিকেট ম্যাচ','ok'); }
+    if(!state.cricket.length){ $('#cricketHero').innerHTML=''; $('#cricketLive').innerHTML=''; $('#cricketUpcoming').innerHTML=''; $('#cricketFinished').innerHTML=emptyState('ক্রিকেট ম্যাচ নেই',''); }
+    else { renderCricket(); showStatus('🏏 '+state.cricket.length+' ক্রিকেট ম্যাচ','ok'); }
     updateNavBadge(); updateTicker();
-  }catch(err){
-    console.error('[cricket]',err); reportFailure();
-    if(!state.cricket.length){
-      $('#cricketLive').innerHTML='';
-      $('#cricketUpcoming').innerHTML=errorCard('ক্রিকেট ডেটা লোড হয়নি', err.message||'', null);
-    }
+  }catch(err){ console.error('[cricket]',err); reportFailure();
+    if(!state.cricket.length){ $('#cricketLive').innerHTML=''; $('#cricketUpcoming').innerHTML=errorCard('ক্রিকেট লোড হয়নি', err.message||'', null); }
   }
 }
 function normalizeCricket(m){
-  const s=m.matchStarted,e=m.matchEnded;
-  let cat='upcoming'; if(s&&!e) cat='live'; else if(e) cat='finished';
+  const s=m.matchStarted,e=m.matchEnded; let cat='upcoming';
+  if(s&&!e) cat='live'; else if(e) cat='finished';
   const dk=dateKeyOf(m.dateTimeGMT||m.date)||todayKey();
   return {id:'ck-'+m.id,cat,live:cat==='live',name:m.name,series:m.series_id||'',venue:m.venue||'',date:m.dateTimeGMT||m.date,teams:m.teams||[],teamsWithImg:m.teamInfo||[],scores:m.score||[],status:m.status||'',matchType:m.matchType||'',dateKey:dk};
 }
@@ -998,11 +1005,7 @@ function renderCricket(){
   else filtered=list.filter(m=>state.filter==='all'||state.filter==='international'||m.cat===state.filter);
   const hero=filtered.find(m=>m.live)||filtered.find(m=>m.cat==='upcoming')||filtered[0];
   $('#cricketHero').innerHTML=hero?renderCricketHero(hero):'';
-  if(!filtered.length){
-    $('#cricketLive').innerHTML=''; $('#cricketUpcoming').innerHTML='';
-    $('#cricketFinished').innerHTML=emptyState(state.filter==='favorites'?'⭐ কোনো প্রিয় ক্রিকেট টিম নেই':'কোনো ক্রিকেট ম্যাচ নেই','');
-    bindClicks(); return;
-  }
+  if(!filtered.length){ $('#cricketLive').innerHTML=''; $('#cricketUpcoming').innerHTML=''; $('#cricketFinished').innerHTML=emptyState(state.filter==='favorites'?'⭐ প্রিয় ক্রিকেট টিম নেই':'ক্রিকেট ম্যাচ নেই',''); bindClicks(); return; }
   const by={live:filtered.filter(m=>m.cat==='live'),upcoming:filtered.filter(m=>m.cat==='upcoming'),finished:filtered.filter(m=>m.cat==='finished')};
   const showing=state.filter==='all'?['live','upcoming','finished']:[state.filter];
   $('#cricketLive').innerHTML=showing.includes('live')?sectionCricket(by.live,'চলমান ম্যাচ'):'';
@@ -1011,39 +1014,25 @@ function renderCricket(){
   bindClicks();
 }
 function renderCricketHero(m){
-  const [t1,t2]=m.teams;
-  const isLive=m.live;
+  const [t1,t2]=m.teams; const isLive=m.live;
   const img1=cricketLogo(m,t1),img2=cricketLogo(m,t2);
   const scoreFor=team=>{ const s=m.scores.filter(x=>(x.inning||'').includes(team)); if(!s.length) return {main:'—',sub:''}; return {main:s[0].r+'/'+s[0].w,sub:s[0].o+' ov'}; };
-  const s1=scoreFor(t1),s2=scoreFor(t2);
-  const timeStr=(m.date||'').slice(11,16)||'TBA';
-  return '<div class="hero"><div class="hero-in">'+
-    '<div class="hero-top"><span class="hero-tag">'+(isLive?'<span class="dot"></span>LIVE':m.cat==='finished'?'RESULT':'UPCOMING')+'</span>'+(m.matchType?'<span class="hero-min">'+escapeHtml(m.matchType.toUpperCase())+'</span>':'')+'</div>'+
-    '<div class="hero-comp">'+escapeHtml(m.series||'Cricket')+'</div>'+
-    '<div class="hero-teams">'+
-    '<div class="hero-team">'+crestHTML(img1,t1||'T1','lg')+'<div class="name">'+escapeHtml(t1||'T1')+'</div></div>'+
-    '<div class="hero-score">'+((s1.main!=='—'||s2.main!=='—')?'<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="font-family:var(--font-en);font-weight:800;font-size:15px">'+s1.main+' <span style="color:var(--text-3);font-size:10px">'+s1.sub+'</span></div><div style="font-family:var(--font-en);font-weight:800;font-size:15px">'+s2.main+' <span style="color:var(--text-3);font-size:10px">'+s2.sub+'</span></div></div>':'<div class="vs">'+escapeHtml(timeStr)+'</div>')+'</div>'+
-    '<div class="hero-team">'+crestHTML(img2,t2||'T2','lg')+'<div class="name">'+escapeHtml(t2||'T2')+'</div></div>'+
-    '</div></div></div>';
+  const s1=scoreFor(t1),s2=scoreFor(t2); const timeStr=(m.date||'').slice(11,16)||'TBA';
+  return '<div class="hero"><div class="hero-in"><div class="hero-top"><span class="hero-tag">'+(isLive?'<span class="dot"></span>LIVE':m.cat==='finished'?'RESULT':'UPCOMING')+'</span>'+(m.matchType?'<span class="hero-min">'+escapeHtml(m.matchType.toUpperCase())+'</span>':'')+'</div><div class="hero-comp">'+escapeHtml(m.series||'Cricket')+'</div><div class="hero-teams"><div class="hero-team">'+crestHTML(img1,t1||'T1','lg')+'<div class="name">'+escapeHtml(t1||'T1')+'</div></div><div class="hero-score">'+((s1.main!=='—'||s2.main!=='—')?'<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="font-family:var(--font-en);font-weight:800;font-size:15px">'+s1.main+' <span style="color:var(--text-3);font-size:10px">'+s1.sub+'</span></div><div style="font-family:var(--font-en);font-weight:800;font-size:15px">'+s2.main+' <span style="color:var(--text-3);font-size:10px">'+s2.sub+'</span></div></div>':'<div class="vs">'+escapeHtml(timeStr)+'</div>')+'</div><div class="hero-team">'+crestHTML(img2,t2||'T2','lg')+'<div class="name">'+escapeHtml(t2||'T2')+'</div></div></div></div></div>';
 }
 function sectionCricket(m,t){ if(!m.length) return ''; return '<div class="sec-hd"><h2>'+(t==='চলমান ম্যাচ'?'<span class="pulse"></span>':'')+t+'</h2><a>'+m.length+' matches</a></div><div class="league-group">'+m.map(renderCricketRow).join('')+'</div>'; }
 function renderCricketRow(m){
   const [t1,t2]=m.teams;
   const img1=cricketLogo(m,t1),img2=cricketLogo(m,t2);
   const scoreFor=team=>{ const s=m.scores.filter(x=>(x.inning||'').includes(team)); if(!s.length) return null; return {r:s[0].r,w:s[0].w,o:s[0].o}; };
-  const s1=scoreFor(t1),s2=scoreFor(t2);
-  const timeStr=(m.date||'').slice(11,16)||'TBA';
+  const s1=scoreFor(t1),s2=scoreFor(t2); const timeStr=(m.date||'').slice(11,16)||'TBA';
   const timeCol=m.live?'<span class="tm">LIVE</span><span class="st">Now</span>':m.cat==='finished'?'<span class="tm date">RES</span><span class="st">Ended</span>':'<span class="tm">'+timeStr+'</span><span class="st">Start</span>';
   const teamRows=[t1,t2].map((t,i)=>{ const sc=i===0?s1:s2; const img=i===0?img1:img2; return '<div class="mteam">'+crestHTML(img,t||'?','sm')+'<span class="tn">'+escapeHtml(t||'—')+'</span><span class="ts" style="font-size:12.5px">'+(sc?(sc.r+'/'+sc.w+' ('+sc.o+')'):'—')+'</span></div>'; }).join('');
   const fav=(t1&&isFav(t1))||(t2&&isFav(t2))?'on':'';
-  return '<div class="match '+(m.live?'live':'')+'" data-id="'+m.id+'" data-sport="cricket">'+
-    '<div class="match-time">'+timeCol+'</div>'+
-    '<div class="match-body">'+teamRows+(m.status?'<div style="margin-top:6px;font-size:10.5px;color:#6EE7B7;text-align:center;font-weight:600;padding:6px 9px;background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.22);border-radius:8px">'+escapeHtml(m.status)+'</div>':'')+'</div>'+
-    '<button class="match-star '+fav+'" data-fav-home="'+escapeHtml(t1||'')+'" data-fav-away="'+escapeHtml(t2||'')+'" onclick="event.stopPropagation();window.__toggleFav(this)"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></button>'+
-    '</div>';
+  return '<div class="match '+(m.live?'live':'')+'" data-id="'+m.id+'" data-sport="cricket"><div class="match-time">'+timeCol+'</div><div class="match-body">'+teamRows+(m.status?'<div style="margin-top:6px;font-size:10.5px;color:#6EE7B7;text-align:center;font-weight:600;padding:6px 9px;background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.22);border-radius:8px">'+escapeHtml(m.status)+'</div>':'')+'</div><button class="match-star '+fav+'" data-fav-home="'+escapeHtml(t1||'')+'" data-fav-away="'+escapeHtml(t2||'')+'" onclick="event.stopPropagation();window.__toggleFav(this)"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></button></div>';
 }
 
-/* ===== Shared ===== */
+/* Shared */
 function updateCounts(list){
   const live=list.filter(m=>m.live).length;
   const up=list.filter(m=>m.cat==='upcoming').length;
@@ -1069,10 +1058,7 @@ function updateTicker(){
   const all=state.football.concat(state.cricket);
   const live=all.filter(m=>m.live);
   if(!live.length){ box.innerHTML='<span class="ticker-item">এই মুহূর্তে কোনো লাইভ ম্যাচ নেই · আপডেট চলছে</span>'; return; }
-  const items=live.slice(0,15).map(m=>m.id.startsWith('fb')
-    ?'<span class="ticker-item">'+(isFavMatch(m)?'⭐':(m.intl?'🌍':'⚽'))+' <b>'+escapeHtml(m.home)+'</b> '+(m.hs??0)+' – '+(m.as??0)+' <b>'+escapeHtml(m.away)+'</b> · '+escapeHtml(m.minute||'')+'</span>'
-    :'<span class="ticker-item">🏏 <b>'+escapeHtml(m.name||(m.teams||[]).join(' vs '))+'</b></span>'
-  ).join('');
+  const items=live.slice(0,15).map(m=>m.id.startsWith('fb')?'<span class="ticker-item">'+(isFavMatch(m)?'⭐':(m.intl?'🌍':'⚽'))+' <b>'+escapeHtml(m.home)+'</b> '+(m.hs??0)+' – '+(m.as??0)+' <b>'+escapeHtml(m.away)+'</b> · '+escapeHtml(m.minute||'')+'</span>':'<span class="ticker-item">🏏 <b>'+escapeHtml(m.name||(m.teams||[]).join(' vs '))+'</b></span>').join('');
   box.innerHTML=items+items;
 }
 
@@ -1095,11 +1081,7 @@ function renderScorePage(){
   $('#statLive').textContent=live.length;
   $('#statTotal').textContent=today.length;
   const box=$('#scoreList');
-  const sorted=list.slice().sort((a,b)=>{
-    const r={live:0,upcoming:1,finished:2};
-    if(r[a.cat]!==r[b.cat]) return r[a.cat]-r[b.cat];
-    return new Date(a.utc||a.date)-new Date(b.utc||b.date);
-  });
+  const sorted=list.slice().sort((a,b)=>{ const r={live:0,upcoming:1,finished:2}; if(r[a.cat]!==r[b.cat]) return r[a.cat]-r[b.cat]; return new Date(a.utc||a.date)-new Date(b.utc||b.date); });
   if(!sorted.length){ box.innerHTML=emptyState('স্কোর নেই',''); return; }
   const renderer=state.sport==='football'?renderRow:renderCricketRow;
   box.innerHTML='<div class="league-group" style="margin:0 14px">'+sorted.map(renderer).join('')+'</div>';
@@ -1115,63 +1097,16 @@ function renderSchedulePage(){
   box.innerHTML=dates.map(dk=>{
     const ms=g[dk].slice().sort((a,b)=>new Date(a.utc||a.date)-new Date(b.utc||b.date));
     const parts=dk.split('-');
-    return '<div class="day-block" style="margin:0 14px 14px;border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--stroke);overflow:hidden"><div class="day-hd" style="display:flex;align-items:center;gap:10px;padding:13px 14px;background:linear-gradient(90deg,rgba(255,255,255,.03),transparent);border-bottom:1px solid var(--stroke)"><div class="day-num" style="width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--lime),var(--lime-2));display:grid;place-items:center;font-family:var(--font-en);font-weight:900;font-size:14px;color:#050510;flex-shrink:0;line-height:1">'+parts[2]+'<small style="display:block;font-size:7.5px;font-weight:800;margin-top:1px">'+monthShortNum(parts[1])+'</small></div><div style="flex:1"><b style="display:block;font-size:13px;font-weight:700">'+escapeHtml(relDate(dk))+'</b><span style="font-size:10px;color:var(--text-3);font-family:var(--font-en)">'+ms.length+' MATCHES</span></div></div>'+ms.map(renderer).join('')+'</div>';
+    return '<div class="day-block"><div class="day-hd"><div class="day-num">'+parts[2]+'<small>'+monthShortNum(parts[1])+'</small></div><div class="day-meta"><b>'+escapeHtml(relDate(dk))+'</b><span>'+ms.length+' MATCHES</span></div></div>'+ms.map(renderer).join('')+'</div>';
   }).join('');
   bindClicks();
 }
 
 function bindClicks(){
-  $$('.match').forEach(el=>{
-    el.onclick=(e)=>{
-      if(e.target.closest('.match-star')) return;
-      if(e.target.closest('[data-team-id]')){
-        const t=e.target.closest('[data-team-id]');
-        openTeamDetail(t.dataset.teamId, t.dataset.teamName);
-        return;
-      }
-      openDetail(el.dataset.id, el.dataset.sport);
-    };
-  });
-  $$('.hero-team[data-team-id]').forEach(el=>{
-    el.onclick=(e)=>{ e.stopPropagation(); openTeamDetail(el.dataset.teamId, el.dataset.teamName); };
-  });
+  $$('.match').forEach(el=>{ el.onclick=(e)=>{ if(e.target.closest('.match-star')) return; openDetail(el.dataset.id, el.dataset.sport); }; });
 }
 
-/* ===== Team detail ===== */
-async function openTeamDetail(teamId, teamName){
-  haptic();
-  if(!teamId){ showStatus('টিম আইডি নেই',''); return; }
-  $('#sheetBody').innerHTML='<div style="padding:40px 20px;text-align:center;color:var(--text-3)">টিমের তথ্য লোড হচ্ছে...</div>';
-  $('#mask').classList.add('on'); $('#sheet').classList.add('on');
-  const info=await loadTeamInfo(teamId);
-  if(!info || !info.name){
-    $('#sheetBody').innerHTML=emptyState('টিম পাওয়া যায়নি','API থেকে ডেটা আসেনি');
-    return;
-  }
-  /* Filter matches for this team */
-  const teamMatches=state.football.filter(m=>m.home===teamName||m.away===teamName||m.homeFull===teamName||m.awayFull===teamName);
-  const played=teamMatches.filter(m=>m.cat==='finished').length;
-  const upcoming=teamMatches.filter(m=>m.cat==='upcoming').length;
-  const live=teamMatches.filter(m=>m.cat==='live').length;
-  const html=`
-    <div class="team-head">
-      ${crestHTML('', info.name, 'lg')}
-      <h2>${escapeHtml(info.name)}</h2>
-      <p>${escapeHtml(info.country||'')} ${info.short_name?'· '+escapeHtml(info.short_name):''}</p>
-    </div>
-    <div class="team-stats">
-      <div class="team-stat"><b>${played}</b><small>খেলা</small></div>
-      <div class="team-stat"><b>${upcoming}</b><small>আসন্ন</small></div>
-      <div class="team-stat"><b>${live}</b><small>লাইভ</small></div>
-    </div>
-    <div class="sd-section-title">সাম্প্রতিক ম্যাচ</div>
-    ${teamMatches.length ? '<div class="league-group" style="margin:0">'+teamMatches.slice(0,8).map(renderRow).join('')+'</div>' : emptyState('ম্যাচ নেই','')}
-  `;
-  $('#sheetBody').innerHTML=html;
-  bindClicks();
-}
-
-/* ===== Detail sheets ===== */
+/* Sheet */
 function closeDetail(){ $('#mask').classList.remove('on'); $('#sheet').classList.remove('on'); }
 $('#mask').onclick=closeDetail;
 $('#sheetClose').onclick=closeDetail;
@@ -1189,92 +1124,103 @@ function footballDetail(m){
   const raw=m.raw||{};
   const weather=raw.weather||{};
   const h2h=raw.head_to_head||{};
-
-  let html='<div class="sd-hero">'+
-    '<div class="sd-title">'+(m.intl?'🌍 ':'')+escapeHtml(m.comp)+'</div>'+
-    '<div class="sd-status '+(m.live?'live':'')+'">'+statusLabel+'</div>'+
-    '<div class="sd-teams">'+
-    '<div class="sd-side" onclick="event.stopPropagation();window.__openTeam(\''+m.homeId+'\',\''+escapeHtml(m.home)+'\')">'+crestHTML(m.homeCrest,m.homeFull,'lg')+'<div class="name">'+escapeHtml(m.homeFull)+'</div></div>'+
-    '<div class="sd-score"><span>'+(m.hs??'–')+'</span><i>:</i><span>'+(m.as??'–')+'</span></div>'+
-    '<div class="sd-side" onclick="event.stopPropagation();window.__openTeam(\''+m.awayId+'\',\''+escapeHtml(m.away)+'\')">'+crestHTML(m.awayCrest,m.awayFull,'lg')+'<div class="name">'+escapeHtml(m.awayFull)+'</div></div>'+
-    '</div>'+
-    '<button onclick="window.__toggleFav(this)" data-fav-home="'+escapeHtml(m.home)+'" data-fav-away="'+escapeHtml(m.away)+'" class="match-star '+fav+'" style="margin:18px auto 0;width:auto;padding:10px 20px;border-radius:999px;font-size:11.5px;display:flex;gap:7px;align-items:center;background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.32)"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><span style="color:#FFD98A;font-weight:600">'+(fav?'প্রিয় থেকে সরান':'প্রিয় টিমে যোগ করুন')+'</span></button>'+
-    '</div>';
-
-  /* H2H */
+  let html='<div class="sd-hero"><div class="sd-title">'+(m.intl?'🌍 ':'')+escapeHtml(m.comp)+'</div><div class="sd-status '+(m.live?'live':'')+'">'+statusLabel+'</div><div class="sd-teams"><div class="sd-side">'+crestHTML(m.homeCrest,m.homeFull,'lg')+'<div class="name">'+escapeHtml(m.homeFull)+'</div></div><div class="sd-score"><span>'+(m.hs??'–')+'</span><i>:</i><span>'+(m.as??'–')+'</span></div><div class="sd-side">'+crestHTML(m.awayCrest,m.awayFull,'lg')+'<div class="name">'+escapeHtml(m.awayFull)+'</div></div></div><button onclick="window.__toggleFav(this)" data-fav-home="'+escapeHtml(m.home)+'" data-fav-away="'+escapeHtml(m.away)+'" class="match-star '+fav+'" style="margin:18px auto 0;width:auto;padding:10px 20px;border-radius:999px;font-size:11.5px;display:flex;gap:7px;align-items:center;background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.32)"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><span style="color:#FFD98A;font-weight:600">'+(fav?'প্রিয় থেকে সরান':'প্রিয় টিমে যোগ করুন')+'</span></button></div>';
   if(h2h.total_matches){
-    const hw=h2h.home_wins||0, dw=h2h.draws||0, aw=h2h.away_wins||0, tot=h2h.total_matches;
-    const hp=Math.round((hw/tot)*100), dp=Math.round((dw/tot)*100), ap=100-hp-dp;
-    html+='<div class="sd-section-title">হেড-টু-হেড · শেষ '+tot+' ম্যাচ</div>'+
-      '<div class="h2h-row">'+
-      '<div class="h2h-stat"><b>'+hw+'</b><small>'+escapeHtml(m.home)+'</small></div>'+
-      '<div class="h2h-vs">ড্র '+dw+'</div>'+
-      '<div class="h2h-stat"><b>'+aw+'</b><small>'+escapeHtml(m.away)+'</small></div>'+
-      '</div>'+
-      '<div class="h2h-bar">'+
-      '<i style="background:#D4FF3A;width:'+hp+'%"></i>'+
-      '<i style="background:#6E6E8E;width:'+dp+'%"></i>'+
-      '<i style="background:#FF3B5C;width:'+ap+'%"></i>'+
-      '</div>'+
-      '<div class="h2h-legend"><span><b style="background:#D4FF3A"></b>জয় '+hp+'%</span><span><b style="background:#6E6E8E"></b>ড্র '+dp+'%</span><span><b style="background:#FF3B5C"></b>হার '+ap+'%</span></div>';
+    const hw=h2h.home_wins||0,dw=h2h.draws||0,aw=h2h.away_wins||0,tot=h2h.total_matches;
+    const hp=Math.round((hw/tot)*100),dp=Math.round((dw/tot)*100),ap=100-hp-dp;
+    html+='<div class="sd-section-title">হেড-টু-হেড · শেষ '+tot+' ম্যাচ</div><div class="h2h-row"><div class="h2h-stat"><b>'+hw+'</b><small>'+escapeHtml(m.home)+'</small></div><div class="h2h-vs">ড্র '+dw+'</div><div class="h2h-stat"><b>'+aw+'</b><small>'+escapeHtml(m.away)+'</small></div></div><div class="h2h-bar"><i style="background:#D4FF3A;width:'+hp+'%"></i><i style="background:#6E6E8E;width:'+dp+'%"></i><i style="background:#FF3B5C;width:'+ap+'%"></i></div><div class="h2h-legend"><span><b style="background:#D4FF3A"></b>জয় '+hp+'%</span><span><b style="background:#6E6E8E"></b>ড্র '+dp+'%</span><span><b style="background:#FF3B5C"></b>হার '+ap+'%</span></div>';
   }
-
-  /* Weather */
   if(weather.temperature_c!=null){
     const icons={0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',51:'🌦️',61:'🌧️',71:'🌨️',95:'⛈️'};
     const icon=icons[weather.code]||'🌡️';
-    html+='<div class="sd-section-title">আবহাওয়া</div>'+
-      '<div class="weather-card">'+
-      '<div class="weather-icon">'+icon+'</div>'+
-      '<div class="weather-info"><b>'+weather.temperature_c+'°C</b><span>বাতাস '+Math.round(weather.wind_speed||0)+' km/h</span></div>'+
-      '</div>';
+    html+='<div class="sd-section-title">আবহাওয়া</div><div class="weather-card"><div class="weather-icon">'+icon+'</div><div class="weather-info"><b>'+weather.temperature_c+'°C</b><span>বাতাস '+Math.round(weather.wind_speed||0)+' km/h</span></div></div>';
   }
-
-  /* Match info */
-  html+='<div class="sd-section-title">ম্যাচ তথ্য</div>'+
-    '<div class="sd-info-grid">'+
-    '<div class="sd-info"><small>Competition</small><b>'+escapeHtml(m.comp)+'</b></div>'+
-    '<div class="sd-info"><small>Region</small><b>'+escapeHtml(m.area||'—')+'</b></div>'+
-    '<div class="sd-info"><small>Date</small><b>'+escapeHtml(relDate(m.dateKey))+' · '+escapeHtml(m.dateKey.slice(5))+'</b></div>'+
-    '<div class="sd-info"><small>Kickoff</small><b>'+formatTime(m.timeStr)+'</b></div>'+
-    (raw.venue_id?'<div class="sd-info" style="grid-column:span 2"><small>Venue</small><b>Stadium #'+raw.venue_id+'</b></div>':'')+
-    (raw.round_label?'<div class="sd-info" style="grid-column:span 2"><small>Round</small><b>'+escapeHtml(raw.round_label)+'</b></div>':'')+
-    '</div>';
-
+  html+='<div class="sd-section-title">ম্যাচ তথ্য</div><div class="sd-info-grid"><div class="sd-info"><small>Competition</small><b>'+escapeHtml(m.comp)+'</b></div><div class="sd-info"><small>Region</small><b>'+escapeHtml(m.area||'—')+'</b></div><div class="sd-info"><small>Date</small><b>'+escapeHtml(relDate(m.dateKey))+' · '+escapeHtml(m.dateKey.slice(5))+'</b></div><div class="sd-info"><small>Kickoff</small><b>'+formatTime(m.timeStr)+'</b></div>'+(raw.round_label?'<div class="sd-info" style="grid-column:span 2"><small>Round</small><b>'+escapeHtml(raw.round_label)+'</b></div>':'')+'</div>';
   return html;
 }
-window.__openTeam=(id,name)=>{ openTeamDetail(id,name); };
-
 function cricketDetail(m){
   const [t1,t2]=m.teams;
   const img1=cricketLogo(m,t1),img2=cricketLogo(m,t2);
   const scoreFor=t=>{ const s=m.scores.filter(x=>(x.inning||'').includes(t)); if(!s.length) return '—'; return s.map(x=>x.r+'/'+x.w+' ('+x.o+')').join(' & '); };
   const fav=((t1&&isFav(t1))||(t2&&isFav(t2)))?'on':'';
-  return '<div class="sd-hero">'+
-    '<div class="sd-title">'+escapeHtml(m.series||'Cricket')+'</div>'+
-    '<div class="sd-status '+(m.live?'live':'')+'">'+(m.live?'LIVE':m.cat==='finished'?'COMPLETED':'UPCOMING')+'</div>'+
-    '<div class="sd-teams">'+
-    '<div class="sd-side">'+crestHTML(img1,t1||'—','lg')+'<div class="name">'+escapeHtml(t1||'—')+'</div></div>'+
-    '<div class="sd-score" style="font-size:18px"><div style="display:flex;flex-direction:column;gap:5px;align-items:center"><span style="font-size:13px">'+escapeHtml(scoreFor(t1))+'</span><i style="font-size:11px">vs</i><span style="font-size:13px">'+escapeHtml(scoreFor(t2))+'</span></div></div>'+
-    '<div class="sd-side">'+crestHTML(img2,t2||'—','lg')+'<div class="name">'+escapeHtml(t2||'—')+'</div></div>'+
-    '</div>'+
-    '<button onclick="window.__toggleFav(this)" data-fav-home="'+escapeHtml(t1||'')+'" data-fav-away="'+escapeHtml(t2||'')+'" class="match-star '+fav+'" style="margin:18px auto 0;width:auto;padding:10px 20px;border-radius:999px;font-size:11.5px;display:flex;gap:7px;align-items:center;background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.32)"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><span style="color:#FFD98A;font-weight:600">'+(fav?'প্রিয় থেকে সরান':'প্রিয় টিমে যোগ করুন')+'</span></button>'+
-    '</div>'+
-    (m.status?'<div style="margin-bottom:18px;padding:11px;border-radius:11px;background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.22);font-size:11.5px;color:#6EE7B7;font-weight:600;text-align:center">'+escapeHtml(m.status)+'</div>':'')+
-    '<div class="sd-section-title">ম্যাচ তথ্য</div>'+
-    '<div class="sd-info-grid">'+
-    '<div class="sd-info"><small>Format</small><b>'+escapeHtml((m.matchType||'—').toUpperCase())+'</b></div>'+
-    '<div class="sd-info"><small>Series</small><b>'+escapeHtml(m.series||'—')+'</b></div>'+
-    '<div class="sd-info" style="grid-column:span 2"><small>Venue</small><b>'+escapeHtml(m.venue||'—')+'</b></div>'+
-    '</div>';
+  return '<div class="sd-hero"><div class="sd-title">'+escapeHtml(m.series||'Cricket')+'</div><div class="sd-status '+(m.live?'live':'')+'">'+(m.live?'LIVE':m.cat==='finished'?'COMPLETED':'UPCOMING')+'</div><div class="sd-teams"><div class="sd-side">'+crestHTML(img1,t1||'—','lg')+'<div class="name">'+escapeHtml(t1||'—')+'</div></div><div class="sd-score" style="font-size:18px"><div style="display:flex;flex-direction:column;gap:5px;align-items:center"><span style="font-size:13px">'+escapeHtml(scoreFor(t1))+'</span><i style="font-size:11px">vs</i><span style="font-size:13px">'+escapeHtml(scoreFor(t2))+'</span></div></div><div class="sd-side">'+crestHTML(img2,t2||'—','lg')+'<div class="name">'+escapeHtml(t2||'—')+'</div></div></div><button onclick="window.__toggleFav(this)" data-fav-home="'+escapeHtml(t1||'')+'" data-fav-away="'+escapeHtml(t2||'')+'" class="match-star '+fav+'" style="margin:18px auto 0;width:auto;padding:10px 20px;border-radius:999px;font-size:11.5px;display:flex;gap:7px;align-items:center;background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.32)"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><span style="color:#FFD98A;font-weight:600">'+(fav?'প্রিয় থেকে সরান':'প্রিয় টিমে যোগ করুন')+'</span></button></div>'+(m.status?'<div style="margin-bottom:18px;padding:11px;border-radius:11px;background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.22);font-size:11.5px;color:#6EE7B7;font-weight:600;text-align:center">'+escapeHtml(m.status)+'</div>':'')+'<div class="sd-section-title">ম্যাচ তথ্য</div><div class="sd-info-grid"><div class="sd-info"><small>Format</small><b>'+escapeHtml((m.matchType||'—').toUpperCase())+'</b></div><div class="sd-info"><small>Series</small><b>'+escapeHtml(m.series||'—')+'</b></div><div class="sd-info" style="grid-column:span 2"><small>Venue</small><b>'+escapeHtml(m.venue||'—')+'</b></div></div>';
 }
 
-/* ===== Sport & filter ===== */
+/* ============ ABOUT PAGE ============ */
+function openAbout(){
+  haptic();
+  const html=`
+  <div class="about-hero">
+    <div class="about-logo"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg></div>
+    <h1>আমার খেলাঘর</h1>
+    <p>বাংলাদেশের প্রিমিয়াম লাইভ স্পোর্টস প্ল্যাটফর্ম</p>
+    <span class="about-ver">v13.0 ULTIMATE</span>
+  </div>
+
+  <div class="about-section">
+    <h3><span class="ico gold"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span>যে জন্য আমরা সেরা</h3>
+    <p>আমাদের লক্ষ্য একটাই — <strong>বাংলাদেশের সেরা ফ্রি লাইভ স্কোর অ্যাপ</strong>। যেকোনো দেশের, যেকোনো লিগের, যেকোনো ম্যাচ — সব এক জায়গায়। বিজ্ঞাপন-মুক্ত নয়, কিন্তু স্বাধীন। কোনো লগইন নেই, কোনো সাবস্ক্রিপশন নেই।</p>
+  </div>
+
+  <div class="about-section">
+    <h3><span class="ico violet"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/></svg></span>ফিচারসমূহ</h3>
+    <div class="feat-grid">
+      <div class="feat-item"><div class="fi-ic">⚽</div><b>১,৫০০+ ম্যাচ</b><span>প্রতিদিন সব লিগ</span></div>
+      <div class="feat-item"><div class="fi-ic">🏏</div><b>লাইভ ক্রিকেট</b><span>বিশ্বজুড়ে সব ম্যাচ</span></div>
+      <div class="feat-item"><div class="fi-ic">🌍</div><b>আন্তর্জাতিক</b><span>WC, EURO, Copa</span></div>
+      <div class="feat-item"><div class="fi-ic">⭐</div><b>প্রিয় টিম</b><span>ওয়ান-ট্যাপ সেভ</span></div>
+      <div class="feat-item"><div class="fi-ic">🔔</div><b>গোল অ্যালার্ট</b><span>লাইভ নোটিফিকেশন</span></div>
+      <div class="feat-item"><div class="fi-ic">🎉</div><b>গোল এনিমেশন</b><span>কনফেটি ফেস্টিভ্যাল</span></div>
+      <div class="feat-item"><div class="fi-ic">📊</div><b>H2H স্ট্যাট</b><span>পুরোনো রেকর্ড</span></div>
+      <div class="feat-item"><div class="fi-ic">📱</div><b>PWA অ্যাপ</b><span>ইনস্টল করে চালান</span></div>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h3><span class="ico pink"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>লাইভ পরিসংখ্যান</h3>
+    <div class="stat-big">
+      <div class="stat-big-item"><b>21,000+</b><small>মোট ম্যাচ</small></div>
+      <div class="stat-big-item"><b>90+</b><small>ফুটবল লিগ</small></div>
+      <div class="stat-big-item"><b>24/7</b><small>লাইভ আপডেট</small></div>
+      <div class="stat-big-item"><b>99.9%</b><small>আপটাইম</small></div>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h3><span class="ico amber"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>টেকনোলজি</h3>
+    <p style="margin-bottom:12px">আধুনিক Web technology দিয়ে তৈরি — দ্রুত, নিরাপদ, নির্ভরযোগ্য।</p>
+    <div class="tech-list">
+      <span class="tech-chip">PWA</span>
+      <span class="tech-chip">Service Worker</span>
+      <span class="tech-chip">Cloudflare CDN</span>
+      <span class="tech-chip">HTTPS</span>
+      <span class="tech-chip">BSD API</span>
+      <span class="tech-chip">Cricket API</span>
+      <span class="tech-chip">Zero Tracker</span>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h3><span class="ico gold"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>প্রাইভেসি</h3>
+    <p>আমরা <strong>কোনো ব্যক্তিগত তথ্য সংগ্রহ করি না</strong>। কোনো লগইন নেই, কোনো ট্র্যাকিং নেই, কোনো অ্যাকাউন্ট নেই। আপনার প্রিয় টিম শুধু আপনার ফোনেই সেভ থাকে। সাইট ১০০% অ্যানোনিমাস।</p>
+  </div>
+
+  <div class="credit-box">
+    <div class="heart">💚</div>
+    <h4>ভালোবাসা দিয়ে তৈরি</h4>
+    <p>বাংলাদেশের ফুটবল ও ক্রিকেট ফ্যানদের জন্য <b>গর্বের সাথে</b> তৈরি</p>
+    <p style="margin-top:10px;font-family:var(--font-en);font-size:10.5px;letter-spacing:.4px">© 2026 আমার খেলাঘর · Made with ❤️ in BD</p>
+  </div>
+  `;
+  $('#sheetBody').innerHTML=html;
+  $('#mask').classList.add('on'); $('#sheet').classList.add('on');
+}
+
+/* Sport */
 $$('.sport-btn').forEach(btn=>{
   btn.onclick=()=>{
     haptic();
-    const s=btn.dataset.sport;
-    if(s===state.sport) return;
+    const s=btn.dataset.sport; if(s===state.sport) return;
     state.sport=s;
     $$('.sport-btn').forEach(b=>b.classList.toggle('on',b.dataset.sport===s));
     $('#sportSwitch').dataset.active=s;
@@ -1286,6 +1232,7 @@ $$('.sport-btn').forEach(btn=>{
   };
 });
 
+/* Chips */
 $$('#chips .chip').forEach(c=>{
   c.onclick=()=>{
     haptic();
@@ -1297,14 +1244,14 @@ $$('#chips .chip').forEach(c=>{
   };
 });
 
-/* ===== Search ===== */
-$('#searchInput').addEventListener('input', (e)=>{
+/* Search */
+$('#searchInput').addEventListener('input',(e)=>{
   state.search=e.target.value.trim();
   matchIdx=0;
   if(state.sport==='football') renderFootball(); else renderCricket();
 });
 
-/* ===== Refresh ===== */
+/* Refresh */
 $('#refreshBtn').onclick=async()=>{
   haptic();
   const btn=$('#refreshBtn');
@@ -1315,6 +1262,7 @@ $('#refreshBtn').onclick=async()=>{
   setTimeout(()=>btn.classList.remove('spin'),500);
 };
 
+/* Noti button */
 $('#notiBtn').onclick=()=>{
   haptic();
   const live=(state.football.concat(state.cricket)).filter(m=>m.live).length;
@@ -1324,7 +1272,7 @@ $('#notiBtn').onclick=()=>{
   showStatus(icon+' '+live+' লাইভ · 🌍 '+intl+' · ⭐ '+fav,'ok');
 };
 
-/* ===== Notifications toggle ===== */
+/* Notification toggle */
 $('#notiToggle').checked=notiEnabled;
 $('#notiToggle').onchange=async(e)=>{
   if(e.target.checked){
@@ -1341,21 +1289,33 @@ $('#notiToggle').onchange=async(e)=>{
 };
 if(notiEnabled) $('#notiStatus').textContent='চালু আছে ✅';
 
-$('#clearFavBtn').onclick=()=>{
+/* Profile buttons */
+$('#btnFavs').onclick=()=>{
+  haptic();
+  switchPage('home');
+  setTimeout(()=>{
+    $$('#chips .chip').forEach(x=>x.classList.remove('on'));
+    const favChip=$$('#chips .chip').find(c=>c.dataset.filter==='favorites');
+    if(favChip){ favChip.classList.add('on'); state.filter='favorites'; renderFootball(); }
+  },300);
+};
+$('#btnClearFavs').onclick=()=>{
   haptic();
   if(!confirm('সব প্রিয় টিম মুছে ফেলবেন?')) return;
   saveFavs([]);
   showStatus('⭐ সব প্রিয় টিম মুছে ফেলা হয়েছে','');
   if(state.filter==='favorites') renderFootball();
 };
+$('#btnAbout').onclick=()=>{ openAbout(); };
 
-/* ===== PWA ===== */
+/* PWA */
 let deferredInstallPrompt=null;
 window.addEventListener('beforeinstallprompt',(e)=>{
   e.preventDefault(); deferredInstallPrompt=e;
   $('#installBtn').style.display='grid';
 });
 async function doInstall(){
+  haptic();
   if(!deferredInstallPrompt){ showStatus('ব্রাউজার মেনু → Add to Home Screen চাপুন',''); return; }
   deferredInstallPrompt.prompt();
   const {outcome}=await deferredInstallPrompt.userChoice;
@@ -1363,7 +1323,7 @@ async function doInstall(){
   deferredInstallPrompt=null;
 }
 $('#installBtn').onclick=doInstall;
-$('#installBtn2').onclick=doInstall;
+$('#btnInstall2').onclick=doInstall;
 
 (function(){
   const manifest={
@@ -1382,45 +1342,18 @@ $('#installBtn2').onclick=doInstall;
   if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(()=>{}); }
 })();
 
-/* ===== Pull to refresh ===== */
+/* Pull to refresh */
 (function(){
   let startY=0, pulling=false, triggered=false;
   const ptr=$('#ptr');
   document.addEventListener('touchstart',(e)=>{ if(window.scrollY===0) startY=e.touches[0].clientY; },{passive:true});
-  document.addEventListener('touchmove',(e)=>{
-    if(window.scrollY!==0||!startY) return;
-    const y=e.touches[0].clientY-startY;
-    if(y>60&&!pulling&&!triggered){ pulling=true; ptr.classList.add('on'); }
-  },{passive:true});
+  document.addEventListener('touchmove',(e)=>{ if(window.scrollY!==0||!startY) return; const y=e.touches[0].clientY-startY; if(y>60&&!pulling&&!triggered){ pulling=true; ptr.classList.add('on'); } },{passive:true});
   document.addEventListener('touchend',async()=>{
-    if(pulling){
-      triggered=true;
-      ptr.classList.add('spin');
-      setConnection('checking');
-      await Promise.all([loadFootball(),loadCricket()]);
-      setTimeout(()=>{ ptr.classList.remove('on','spin'); pulling=false; triggered=false; startY=0; },600);
-    }
+    if(pulling){ triggered=true; ptr.classList.add('spin'); setConnection('checking'); await Promise.all([loadFootball(),loadCricket()]); setTimeout(()=>{ ptr.classList.remove('on','spin'); pulling=false; triggered=false; startY=0; },600); }
   });
 })();
 
-/* ===== Live minute ticker ===== */
-setInterval(()=>{
-  let changed=false;
-  state.football.forEach(m=>{
-    if(m.live && m.raw && m.raw.current_minute!=null){
-      m.raw.current_minute = Math.min(90, m.raw.current_minute+1);
-      m.minute = m.raw.current_minute + "'";
-      changed=true;
-    }
-  });
-  if(changed && state.sport==='football'){
-    /* Update just minute text without full re-render */
-    $$('.match.live .match-time .tm').forEach((el,i)=>{});
-    /* Simpler: don't re-render; just wait for next refresh */
-  }
-}, 60000);
-
-/* ===== Init ===== */
+/* Init */
 setConnection('checking');
 loadFootball();
 loadCricket();
