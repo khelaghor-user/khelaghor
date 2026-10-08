@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="আমার খেলাঘর">
-<title>আমার খেলাঘর — Live Football & Cricket</title>
+<title>আমার খেলাঘর — Live Football</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -157,16 +157,6 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 @keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ticker-item{display:flex;align-items:center;gap:6px;color:var(--text-2)}
 .ticker-item b{color:var(--lime);font-weight:800}
-
-/* ===== SPORT SWITCH ===== */
-.sport-switch{margin:0 14px 12px;display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:4px;background:var(--glass);border:1px solid var(--stroke);border-radius:14px;position:relative;overflow:hidden}
-.sport-switch::before{content:"";position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 6px);border-radius:11px;
-  background:linear-gradient(135deg,var(--lime),var(--lime-2));transition:transform .4s var(--ease-out),background .4s;box-shadow:0 8px 22px -8px rgba(212,255,58,.7)}
-.sport-switch[data-active="cricket"]::before{transform:translateX(calc(100% + 2px));background:linear-gradient(135deg,var(--emerald),var(--emerald-2));box-shadow:0 8px 22px -8px rgba(16,185,129,.7)}
-.sport-btn{position:relative;z-index:1;padding:10px 6px;border-radius:11px;display:flex;align-items:center;justify-content:center;gap:6px;
-  font-size:12px;font-weight:700;color:var(--text-3);font-family:var(--font-en);letter-spacing:.4px;transition:color .25s}
-.sport-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
-.sport-btn.on{color:#050510}
 
 /* ===== PAGES ===== */
 .page{display:none;animation:pageIn .45s var(--ease-out)}
@@ -539,6 +529,67 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
   display:grid;place-items:center;font-size:11px;transition:.3s var(--ease-spring);box-shadow:0 2px 6px rgba(0,0,0,.3)}
 .theme-toggle input:checked::after{transform:translateX(20px);content:"🌙"}
 
+/* ===== ULTRA PREMIUM ADDITIONS ===== */
+.crest-lg{width:64px;height:64px;border-radius:18px}
+.crest-sm{width:28px;height:28px;border-radius:8px}
+.crest-lg.crest-img,.crest-sm.crest-img{background:rgba(255,255,255,.04);border:1px solid var(--stroke-2)}
+.hero .crest-lg{box-shadow:0 8px 24px -8px rgba(0,0,0,.5)}
+.sd-side .crest-lg{width:72px;height:72px;border-radius:20px;box-shadow:0 10px 28px -10px rgba(0,0,0,.55)}
+
+/* Timeline / Incidents */
+.timeline{position:relative;padding:4px 0 8px}
+.timeline::before{content:"";position:absolute;left:18px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--crimson),var(--violet),transparent)}
+.tl-item{display:grid;grid-template-columns:36px 1fr;gap:10px;margin-bottom:12px;position:relative}
+.tl-min{font-family:var(--font-en);font-size:10px;font-weight:800;color:var(--text-3);text-align:center;padding-top:2px}
+.tl-card{background:var(--glass);border:1px solid var(--stroke);border-radius:12px;padding:10px 12px;font-size:12px}
+.tl-card.goal{border-color:rgba(212,255,58,.35);background:linear-gradient(135deg,rgba(212,255,58,.08),transparent)}
+.tl-card.card-y{border-color:rgba(255,176,32,.35)}
+.tl-card.card-r{border-color:rgba(255,59,92,.35)}
+.tl-card b{font-weight:700}
+.tl-card small{display:block;color:var(--text-3);font-size:10.5px;margin-top:2px}
+
+/* Lineups */
+.lineup-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lineup-side{background:var(--glass);border:1px solid var(--stroke);border-radius:14px;padding:12px;overflow:hidden}
+.lineup-side h4{font-size:11px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.lineup-player{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--stroke);font-size:11.5px}
+.lineup-player:last-child{border-bottom:none}
+.lineup-num{width:22px;height:22px;border-radius:6px;background:rgba(255,255,255,.06);display:grid;place-items:center;font-family:var(--font-en);font-weight:800;font-size:10px;color:var(--text-2);flex-shrink:0}
+.lineup-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Stats bars */
+.stat-bars{display:flex;flex-direction:column;gap:10px}
+.stat-bar-row{display:grid;grid-template-columns:42px 1fr 42px;align-items:center;gap:8px;font-family:var(--font-en);font-size:11px;font-weight:700}
+.stat-bar-row .label{grid-column:1/-1;font-size:10px;color:var(--text-3);font-weight:600;text-align:center;margin-bottom:-4px;font-family:var(--font-bn)}
+.stat-bar-track{height:6px;border-radius:3px;background:rgba(255,255,255,.06);display:flex;overflow:hidden}
+.stat-bar-track i{display:block;height:100%}
+.stat-bar-track .h{background:linear-gradient(90deg,var(--lime),var(--emerald))}
+.stat-bar-track .a{background:linear-gradient(90deg,var(--crimson),var(--violet));margin-left:auto}
+
+/* Standings table */
+.stand-table{width:100%;border-collapse:collapse;font-size:11.5px}
+.stand-table th{text-align:left;padding:8px 6px;color:var(--text-3);font-family:var(--font-en);font-size:9.5px;font-weight:700;border-bottom:1px solid var(--stroke);text-transform:uppercase}
+.stand-table td{padding:9px 6px;border-bottom:1px solid var(--stroke);vertical-align:middle}
+.stand-table tr:last-child td{border-bottom:none}
+.stand-pos{width:22px;font-family:var(--font-en);font-weight:800;color:var(--text-3)}
+.stand-team{display:flex;align-items:center;gap:7px;font-weight:600}
+.stand-team img{width:18px;height:18px;object-fit:contain}
+.stand-pts{font-family:var(--font-en);font-weight:800;color:var(--lime)}
+
+/* Loading shimmer in sheet */
+.detail-loading{padding:30px 0;text-align:center;color:var(--text-3);font-size:12px}
+.detail-loading .spin-ic{width:28px;height:28px;margin:0 auto 12px;border:2.5px solid var(--stroke);border-top-color:var(--lime);border-radius:50%;animation:spin .8s linear infinite}
+
+/* Premium toast upgrade */
+.toast{backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12)}
+
+/* Better match row crest */
+.match .crest-sm{box-shadow:0 2px 8px -2px rgba(0,0,0,.4)}
+
+/* Act btn standings */
+.act-btn.stand{background:linear-gradient(135deg,rgba(34,211,238,.2),rgba(34,211,238,.08));border-color:rgba(34,211,238,.35);color:var(--cyan)}
+.act-btn.stand svg{stroke:var(--cyan)}
+
 @media (min-width:480px){
   body{max-width:480px;margin:0 auto}
   .hdr,.bnav,.mask,.sheet,.offline-bar,.ptr{max-width:480px;left:50%;transform:translateX(-50%)}
@@ -558,7 +609,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
   <div class="splash-inner">
     <div class="splash-logo"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg></div>
     <h1>আমার খেলাঘর</h1>
-    <p>LIVE SCORES · PREMIUM</p>
+    <p>LIVE FOOTBALL · ULTRA PREMIUM</p>
     <div class="splash-loader"><i></i></div>
   </div>
 </div>
@@ -568,7 +619,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
   <div class="onboard-card">
     <div class="onboard-ic" id="obIcon">⚽</div>
     <h2 id="obTitle">স্বাগতম!</h2>
-    <p id="obText">বাংলাদেশের সেরা লাইভ ফুটবল ও ক্রিকেট স্কোর অ্যাপে আপনাকে স্বাগতম।</p>
+    <p id="obText">বাংলাদেশের সেরা লাইভ ফুটবল স্কোর অ্যাপে আপনাকে স্বাগতম।</p>
     <div class="onboard-dots" id="obDots"><i class="on"></i><i></i><i></i></div>
     <button class="onboard-next" id="obNext">পরবর্তী</button>
   </div>
@@ -590,7 +641,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
   <div class="hdr-inner">
     <div class="logo">
       <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg></div>
-      <div class="logo-text"><b>আমার খেলাঘর</b><span>LIVE SCORES</span></div>
+      <div class="logo-text"><b>আমার খেলাঘর</b><span>ULTRA PREMIUM</span></div>
     </div>
     <div class="hdr-spacer"></div>
     <button class="hdr-btn install" id="installBtn" style="display:none"><svg viewBox="0 0 24 24"><path d="M12 2v16M6 12l6 6 6-6M4 22h16"/></svg></button>
@@ -607,10 +658,6 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
     <button class="clear-search" id="clearSearch"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   </div>
   <div class="ticker"><div class="lbl">LIVE</div><div class="ticker-track"><div class="ticker-items" id="tickerItems"><span class="ticker-item">⚽ লোড হচ্ছে...</span></div></div></div>
-  <div class="sport-switch" id="sportSwitch" data-active="football">
-    <button class="sport-btn on" data-sport="football"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/></svg>FOOTBALL</button>
-    <button class="sport-btn" data-sport="cricket"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="2.5"/></svg>CRICKET</button>
-  </div>
   <div class="chips" id="chips">
     <button class="chip on" data-filter="all">সব<span class="cnt" id="c-all">0</span></button>
     <button class="chip fav" data-filter="favorites">⭐ প্রিয়<span class="cnt" id="c-fav">0</span></button>
@@ -621,16 +668,12 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
   </div>
   <div id="footballPanel">
     <div class="hero-wrap" id="footballHero"></div>
+    <div id="footballFavs"></div>
     <div id="footballIntl"></div>
     <div id="footballLive"></div>
     <div id="footballUpcoming"></div>
     <div id="footballFinished"></div>
-  </div>
-  <div id="cricketPanel" style="display:none">
-    <div class="hero-wrap" id="cricketHero"></div>
-    <div id="cricketLive"></div>
-    <div id="cricketUpcoming"></div>
-    <div id="cricketFinished"></div>
+    <div id="lastUpdated" style="text-align:center;padding:8px 14px 20px;font-size:10px;color:var(--text-4);font-family:var(--font-en)"></div>
   </div>
 </section>
 
@@ -694,7 +737,7 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
     </button>
     <button class="menu-item" id="btnAbout">
       <span class="mi-ic pink"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg></span>
-      <span class="mi-text"><b>অ্যাপ সম্পর্কে</b><span>v13.0 Legendary Edition</span></span>
+      <span class="mi-text"><b>অ্যাপ সম্পর্কে</b><span>v14.1 Ultra Premium</span></span>
       <svg class="mi-arrow" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
     </button>
   </div>
@@ -718,17 +761,17 @@ button{border:0;background:none;color:inherit;font-family:inherit;cursor:pointer
 
 <script>
 /* ================================================================
-   আমার খেলাঘর v13.0 — LEGENDARY EDITION
+   আমার খেলাঘর v14.1 — ULTRA PREMIUM + LIVE + OFFLINE
    ================================================================ */
 const BSD_TOKEN='e6ca04fc64a5d1204afb53a846aec1b8d2627a33';
 const BSD_HOST='https://sports.bzzoiro.com';
-const CRICKET_KEY='959873cd-fb5e-4f78-8906-dae707b50a5e';
-const REFRESH_MS=900000;
-const DAYS_BACK=3,DAYS_AHEAD=3,FETCH_TIMEOUT=15000;
+const REFRESH_LIVE_MS=45000;   // লাইভ থাকলে ৪৫ সেকেন্ড
+const REFRESH_IDLE_MS=180000;  // না থাকলে ৩ মিনিট
+const DAYS_BACK=7,DAYS_AHEAD=14,FETCH_TIMEOUT=15000;
 
 const COLORS=[['#3B82F6','#1E3A8A'],['#EF4444','#7F1D1D'],['#10B981','#064E3B'],['#F59E0B','#78350F'],['#8B5CF6','#4C1D95'],['#EC4899','#831843'],['#06B6D4','#164E63'],['#84CC16','#365314'],['#F97316','#7C2D12'],['#6366F1','#312E81'],['#14B8A6','#134E4A'],['#EAB308','#713F12'],['#F43F5E','#881337'],['#0EA5E9','#0C4A6E'],['#A855F7','#581C87'],['#22C55E','#14532D'],['#FB7185','#9F1239'],['#FBBF24','#92400E'],['#818CF8','#3730A3'],['#34D399','#065F46'],['#F472B6','#9D174D'],['#60A5FA','#1E40AF'],['#FCD34D','#B45309'],['#C084FC','#6B21A8']];
 
-const state={sport:'football',filter:'all',page:'home',football:[],cricket:[],leagues:{},teams:{},search:'',connection:'unknown',consecutiveFails:0,theme:localStorage.getItem('theme')||'dark'};
+const state={filter:'all',page:'home',football:[],leagues:{},teams:{},search:'',connection:'unknown',consecutiveFails:0,theme:localStorage.getItem('theme')||'dark'};
 
 const $=s=>document.querySelector(s);
 const $$=s=>Array.from(document.querySelectorAll(s));
@@ -793,7 +836,7 @@ function saveFavs(a){ localStorage.setItem('favs',JSON.stringify(a)); updateFavC
 }
 function isFav(n){ if(!n) return false; return getFavs().some(f=>f.toLowerCase()===n.toLowerCase()); }
 function updateFavCount(){ const el=$('#favCount'); if(el) el.textContent=getFavs().length+'টি টিম সেভ করা আছে'; }
-function isFavMatch(m){ return isFav(m.home)||isFav(m.away)||(m.teams||[]).some(t=>isFav(t)); }
+function isFavMatch(m){ return isFav(m.home)||isFav(m.away); }
 
 /* ===== Connection ===== */
 let lastSuccessAt=0;
@@ -805,9 +848,29 @@ function setConnection(s){
   else if(s==='offline'){ d.classList.remove('checking'); d.classList.add('off'); b.classList.add('on'); }
   else { d.classList.remove('off'); d.classList.add('checking'); b.classList.remove('on'); }
 }
-function reportSuccess(){ state.consecutiveFails=0; lastSuccessAt=Date.now(); if(state.connection!=='online') setConnection('online'); }
+function reportSuccess(){
+  state.consecutiveFails=0; lastSuccessAt=Date.now();
+  if(state.connection!=='online') setConnection('online');
+  // Offline cache
+  try{ localStorage.setItem('fb_cache', JSON.stringify({t:Date.now(), data:state.football})); }catch(e){}
+  updateLastUpdated();
+}
 function reportFailure(){ if(lastSuccessAt&&(Date.now()-lastSuccessAt)<90000) return; state.consecutiveFails++; if(state.consecutiveFails>=15) setConnection('offline'); }
-window.addEventListener('online',()=>{ state.consecutiveFails=0; setConnection('checking'); showStatus('✅ সংযোগ ফিরেছে','ok'); loadFootball(); loadCricket(); });
+function updateLastUpdated(){
+  const el=$('#lastUpdated'); if(!el) return;
+  if(!lastSuccessAt){ el.textContent=''; return; }
+  const sec=Math.round((Date.now()-lastSuccessAt)/1000);
+  const txt=sec<60?sec+'s ago':Math.round(sec/60)+'m ago';
+  el.textContent='Updated · '+txt;
+}
+function loadCachedFootball(){
+  try{
+    const c=JSON.parse(localStorage.getItem('fb_cache')||'null');
+    if(c&&c.data&&c.data.length){ state.football=c.data; lastSuccessAt=c.t||0; return true; }
+  }catch(e){}
+  return false;
+}
+window.addEventListener('online',()=>{ state.consecutiveFails=0; setConnection('checking'); showStatus('✅ সংযোগ ফিরেছে','ok'); loadFootball(); });
 
 async function fetchWithTimeout(url,opts={},ms=FETCH_TIMEOUT){
   const c=new AbortController(); const t=setTimeout(()=>c.abort(),ms);
@@ -953,28 +1016,58 @@ async function loadLeagues(){
   }catch(e){ console.warn('Leagues failed',e); }
 }
 
+/* সব পেজ ফেচ করে (pagination) */
+async function fetchAllEvents(dateFrom, dateTo){
+  const all=[];
+  let offset=0;
+  const limit=200;
+  while(true){
+    const path=`/api/v2/events/?date_from=${dateFrom}&date_to=${dateTo}&limit=${limit}&offset=${offset}`;
+    const data=await bsd(path).catch(()=>({results:[],count:0,next:null}));
+    const results=data.results||[];
+    results.forEach(e=>{ if(e&&e.id) all.push(e); });
+    if(!data.next || results.length<limit) break;
+    offset+=limit;
+    // rate-limit সুরক্ষা
+    await new Promise(r=>setTimeout(r,80));
+  }
+  return all;
+}
+
 /* ===== Load Football ===== */
 async function loadFootball(){
   if(!state.football.length){
-    $('#footballLive').innerHTML=skeleton();
-    $('#footballUpcoming').innerHTML='';
-    $('#footballFinished').innerHTML='';
-    $('#footballIntl').innerHTML='';
+    // try offline cache first
+    if(loadCachedFootball()){ renderFootball(); updateNavBadge(); updateTicker(); updateLastUpdated(); showStatus('📦 ক্যাশ থেকে লোড',''); }
+    else {
+      $('#footballLive').innerHTML=skeleton();
+      $('#footballUpcoming').innerHTML='';
+      $('#footballFinished').innerHTML='';
+      $('#footballIntl').innerHTML='';
+      $('#footballFavs').innerHTML='';
+    }
   }
   try{
     if(Object.keys(state.leagues).length===0) await loadLeagues();
-    const calls=[ bsd('/api/v2/events/live/').catch(()=>({events:[]})) ];
-    for(let i=-DAYS_BACK;i<=DAYS_AHEAD;i++){ calls.push(bsd('/api/v2/events/?date='+isoDate(i)+'&limit=200').catch(()=>({results:[]}))); }
-    const results=await Promise.all(calls);
-    const liveRes=results[0]; const dayResults=results.slice(1);
+
+    const dateFrom=isoDate(-DAYS_BACK);
+    const dateTo=isoDate(DAYS_AHEAD);
+
+    const [liveRes, allEvents]=await Promise.all([
+      bsd('/api/v2/events/live/').catch(()=>({events:[]})),
+      fetchAllEvents(dateFrom, dateTo)
+    ]);
+
     const map=new Map();
     (liveRes.events||[]).forEach(e=>{ if(e&&e.id) map.set(e.id,e); });
-    dayResults.forEach(r=>{ (r.results||[]).forEach(e=>{ if(e&&e.id) map.set(e.id,e); }); });
+    allEvents.forEach(e=>{ if(e&&e.id) map.set(e.id,e); });
+
     const newData=Array.from(map.values()).map(normalizeFootball).filter(Boolean);
     if(newData.length>0||state.football.length===0) state.football=newData;
     if(newData.length>0) reportSuccess();
     detectGoals(state.football);
     renderFootball(); updateNavBadge(); updateTicker();
+    scheduleNextRefresh();
     if(state.football.length){
       const intlCount=state.football.filter(m=>m.intl).length;
       const liveCount=state.football.filter(m=>m.live).length;
@@ -982,9 +1075,10 @@ async function loadFootball(){
     }
   }catch(err){
     console.error('[football]',err); reportFailure(); soundError();
-    if(state.football.length){ showStatus('পুরনো ডেটা','err'); }
+    if(state.football.length){ showStatus('পুরনো ডেটা দেখানো হচ্ছে','err'); renderFootball(); }
+    else if(loadCachedFootball()){ renderFootball(); updateNavBadge(); updateTicker(); showStatus('📦 অফলাইন ক্যাশ','err'); }
     else {
-      $('#footballHero').innerHTML=''; $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML='';
+      $('#footballHero').innerHTML=''; $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML=''; $('#footballFavs').innerHTML='';
       $('#footballUpcoming').innerHTML=errorCard('ফুটবল লোড হয়নি', err.message||'', 'window.__retryFootball()');
       $('#footballFinished').innerHTML='';
     }
@@ -996,13 +1090,18 @@ function normalizeFootball(e){
   if(!e||!e.home_team||!e.away_team) return null;
   const status=(e.status||'').toLowerCase();
   let cat='upcoming';
-  if(status==='live'||status==='inprogress'||status==='playing'||status==='liveht') cat='live';
-  else if(status==='finished'||status==='ended'||status==='fulltime') cat='finished';
+  // API-এর বিভিন্ন status ভ্যালু সাপোর্ট
+  if(status==='live'||status==='inprogress'||status==='playing'||status==='liveht'||status==='1st_half'||status==='2nd_half'||status==='halftime'||status==='extra_time'||status==='penalties') cat='live';
+  else if(status==='finished'||status==='ended'||status==='fulltime'||status==='ft') cat='finished';
+  else if(status==='notstarted'||status==='upcoming'||status==='scheduled'||status==='postponed'||status==='cancelled') cat='upcoming';
   const utc=e.event_date||''; const dateKey=dateKeyOf(utc)||todayKey();
   const hs=e.home_score!=null?e.home_score:null; const as=e.away_score!=null?e.away_score:null;
   let minute=''; if(cat==='live'){ minute=e.current_minute?e.current_minute+"'":(e.period||'LIVE'); }
   const league=state.leagues[e.league_id]||{};
-  const obj={id:'fb-'+e.id,cat,live:cat==='live',minute,utc,timeStr:utc,dateKey,comp:league.name||'Football',area:league.country||'',home:e.home_team||'Home',away:e.away_team||'Away',homeFull:e.home_team||'Home',awayFull:e.away_team||'Away',homeCrest:'',awayCrest:'',homeId:e.home_team_id,awayId:e.away_team_id,hs,as,status:e.status||'',raw:e};
+  // টিম লোগো — BSD Image API (auth লাগে না, transparent ব্যাকগ্রাউন্ড)
+  const homeCrest=e.home_team_id ? 'https://sports.bzzoiro.com/img/team/'+e.home_team_id+'/?bg=transparent' : '';
+  const awayCrest=e.away_team_id ? 'https://sports.bzzoiro.com/img/team/'+e.away_team_id+'/?bg=transparent' : '';
+  const obj={id:'fb-'+e.id,cat,live:cat==='live',minute,utc,timeStr:utc,dateKey,comp:league.name||'Football',area:league.country||'',home:e.home_team||'Home',away:e.away_team||'Away',homeFull:e.home_team||'Home',awayFull:e.away_team||'Away',homeCrest,awayCrest,homeId:e.home_team_id,awayId:e.away_team_id,hs,as,status:e.status||'',raw:e};
   obj.intl=isInternational(obj);
   return obj;
 }
@@ -1015,7 +1114,7 @@ function applySearch(list){
 }
 function renderFootball(){
   const list=applySearch(state.football);
-  if(state.sport==='football') updateCounts(list);
+  updateCounts(list);
   let filtered;
   if(state.filter==='international') filtered=list.filter(m=>m.intl);
   else if(state.filter==='favorites') filtered=list.filter(m=>isFavMatch(m));
@@ -1024,15 +1123,23 @@ function renderFootball(){
   const hero=filtered.find(m=>m.live)||filtered.find(m=>isFavMatch(m)&&m.cat==='upcoming'&&m.dateKey===tk)||filtered.find(m=>m.intl&&m.cat==='upcoming'&&m.dateKey===tk)||filtered.find(m=>m.cat==='upcoming'&&m.dateKey===tk)||filtered.find(m=>m.cat==='upcoming')||filtered.find(m=>m.cat==='finished');
   $('#footballHero').innerHTML=hero?renderHero(hero):'';
   if(state.filter==='favorites'){
+    $('#footballFavs').innerHTML='';
     if(!filtered.length){ $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML=''; $('#footballUpcoming').innerHTML=emptyState('⭐ প্রিয় টিম নেই','যেকোনো ম্যাচে ⭐ চিহ্নে চাপ দিন'); $('#footballFinished').innerHTML=''; bindClicks(); return; }
     const live=filtered.filter(m=>m.cat==='live'),up=filtered.filter(m=>m.cat==='upcoming'),fin=filtered.filter(m=>m.cat==='finished');
     $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML=live.length?sectionFav(live,'⭐ প্রিয় লাইভ'):''; $('#footballUpcoming').innerHTML=up.length?sectionFavByDate(up,'⭐ প্রিয় আসন্ন','asc'):''; $('#footballFinished').innerHTML=fin.length?sectionFavByDate(fin,'⭐ প্রিয় শেষ','desc'):''; bindClicks(); return;
   }
   if(state.filter==='international'){
+    $('#footballFavs').innerHTML='';
     if(!filtered.length){ $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML=''; $('#footballUpcoming').innerHTML=emptyState('🌍 আন্তর্জাতিক নেই',''); $('#footballFinished').innerHTML=''; bindClicks(); return; }
     const live=filtered.filter(m=>m.cat==='live'),up=filtered.filter(m=>m.cat==='upcoming'),fin=filtered.filter(m=>m.cat==='finished');
     $('#footballIntl').innerHTML=''; $('#footballLive').innerHTML=live.length?sectionIntl(live,'🌍 লাইভ আন্তর্জাতিক'):''; $('#footballUpcoming').innerHTML=up.length?sectionIntlByDate(up,'🌍 আসন্ন আন্তর্জাতিক','asc'):''; $('#footballFinished').innerHTML=fin.length?sectionIntlByDate(fin,'🌍 শেষ আন্তর্জাতিক','desc'):''; bindClicks(); return;
   }
+  // ⭐ আমার টিম সেকশন (শুধু "সব" ফিল্টারে)
+  if(state.filter==='all' && !state.search){
+    const favMatches=list.filter(m=>isFavMatch(m)).sort((a,b)=>{ const r={live:0,upcoming:1,finished:2}; if(r[a.cat]!==r[b.cat]) return r[a.cat]-r[b.cat]; return new Date(a.utc||0)-new Date(b.utc||0); });
+    $('#footballFavs').innerHTML=favMatches.length?sectionFavTop(favMatches):'';
+  } else { $('#footballFavs').innerHTML=''; }
+
   if(state.filter==='all'){
     const intlMatches=list.filter(m=>m.intl).sort((a,b)=>{ const r={live:0,upcoming:1,finished:2}; if(r[a.cat]!==r[b.cat]) return r[a.cat]-r[b.cat]; return new Date(a.utc||0)-new Date(b.utc||0); });
     $('#footballIntl').innerHTML=intlMatches.length?sectionIntlTop(intlMatches):'';
@@ -1047,6 +1154,12 @@ function renderFootball(){
   $('#footballUpcoming').innerHTML=showing.includes('upcoming')?sectionByDate(by.upcoming,'আসন্ন ম্যাচ','asc'):'';
   $('#footballFinished').innerHTML=showing.includes('finished')?sectionByDate(by.finished,'শেষ হওয়া ম্যাচ','desc'):'';
   bindClicks();
+}
+function sectionFavTop(m){
+  const show=m.slice(0,8);
+  const rows=show.map(renderRow).join('');
+  const more=m.length>8?'<div style="text-align:center;padding:10px;font-size:11px;color:var(--text-3);font-family:var(--font-en);border-top:1px solid var(--stroke)">আরও '+(m.length-8)+'টি — ⭐ প্রিয় ফিল্টারে দেখুন</div>':'';
+  return '<div class="sec-hd fav-hd"><h2>⭐ আমার টিম</h2><a onclick="document.querySelector(\'[data-filter=favorites]\').click()" style="cursor:pointer">সব দেখুন</a></div><div class="league-group fav">'+rows+more+'</div>';
 }
 function sectionIntlTop(m){ const show=m.slice(0,6); const rows=show.map(renderRow).join('');
   const more=m.length>6?'<div style="text-align:center;padding:10px;font-size:11px;color:var(--text-3);font-family:var(--font-en);border-top:1px solid var(--stroke)">আরও '+(m.length-6)+'টি — 🌍 ফিল্টারে ট্যাপ করুন</div>':'';
@@ -1109,66 +1222,6 @@ window.__toggleFav=function(el){
   if(state.filter==='favorites') renderFootball();
 };
 
-/* ===== Cricket ===== */
-async function loadCricket(){
-  if(!state.cricket.length){ $('#cricketLive').innerHTML=skeleton(); }
-  try{
-    const res=await fetchWithTimeout('https://api.cricapi.com/v1/currentMatches?apikey='+CRICKET_KEY+'&offset=0');
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const data=await res.json();
-    if(data.status!=='success') throw new Error(data.reason||'API error');
-    const newData=(data.data||[]).map(normalizeCricket);
-    if(newData.length>0||state.cricket.length===0) state.cricket=newData;
-    if(newData.length>0) reportSuccess();
-    if(!state.cricket.length){ $('#cricketHero').innerHTML=''; $('#cricketLive').innerHTML=''; $('#cricketUpcoming').innerHTML=''; $('#cricketFinished').innerHTML=emptyState('ক্রিকেট ম্যাচ নেই',''); }
-    else { renderCricket(); showStatus('🏏 '+state.cricket.length+' ক্রিকেট ম্যাচ','ok'); }
-    updateNavBadge(); updateTicker();
-  }catch(err){ console.error('[cricket]',err); reportFailure();
-    if(!state.cricket.length){ $('#cricketLive').innerHTML=''; $('#cricketUpcoming').innerHTML=errorCard('ক্রিকেট লোড হয়নি', err.message||'', null); }
-  }
-}
-function normalizeCricket(m){
-  const s=m.matchStarted,e=m.matchEnded; let cat='upcoming';
-  if(s&&!e) cat='live'; else if(e) cat='finished';
-  const dk=dateKeyOf(m.dateTimeGMT||m.date)||todayKey();
-  return {id:'ck-'+m.id,cat,live:cat==='live',name:m.name,series:m.series_id||'',venue:m.venue||'',date:m.dateTimeGMT||m.date,teams:m.teams||[],teamsWithImg:m.teamInfo||[],scores:m.score||[],status:m.status||'',matchType:m.matchType||'',dateKey:dk};
-}
-function cricketLogo(m,t){ if(!m.teamsWithImg) return ''; const x=m.teamsWithImg.find(y=>y.name===t||(y.shortname&&t&&t.includes(y.shortname))); return x&&x.img?x.img:''; }
-function renderCricket(){
-  const list=applySearch(state.cricket);
-  if(state.sport==='cricket') updateCounts(list);
-  let filtered;
-  if(state.filter==='favorites') filtered=list.filter(m=>(m.teams||[]).some(t=>isFav(t)));
-  else filtered=list.filter(m=>state.filter==='all'||state.filter==='international'||m.cat===state.filter);
-  const hero=filtered.find(m=>m.live)||filtered.find(m=>m.cat==='upcoming')||filtered[0];
-  $('#cricketHero').innerHTML=hero?renderCricketHero(hero):'';
-  if(!filtered.length){ $('#cricketLive').innerHTML=''; $('#cricketUpcoming').innerHTML=''; $('#cricketFinished').innerHTML=emptyState(state.filter==='favorites'?'⭐ প্রিয় ক্রিকেট নেই':'ক্রিকেট ম্যাচ নেই',''); bindClicks(); return; }
-  const by={live:filtered.filter(m=>m.cat==='live'),upcoming:filtered.filter(m=>m.cat==='upcoming'),finished:filtered.filter(m=>m.cat==='finished')};
-  const showing=state.filter==='all'?['live','upcoming','finished']:[state.filter];
-  $('#cricketLive').innerHTML=showing.includes('live')?sectionCricket(by.live,'চলমান ম্যাচ'):'';
-  $('#cricketUpcoming').innerHTML=showing.includes('upcoming')?sectionCricket(by.upcoming,'আসন্ন ম্যাচ'):'';
-  $('#cricketFinished').innerHTML=showing.includes('finished')?sectionCricket(by.finished,'শেষ ম্যাচ'):'';
-  bindClicks();
-}
-function renderCricketHero(m){
-  const [t1,t2]=m.teams; const isLive=m.live;
-  const img1=cricketLogo(m,t1),img2=cricketLogo(m,t2);
-  const scoreFor=team=>{ const s=m.scores.filter(x=>(x.inning||'').includes(team)); if(!s.length) return {main:'—',sub:''}; return {main:s[0].r+'/'+s[0].w,sub:s[0].o+' ov'}; };
-  const s1=scoreFor(t1),s2=scoreFor(t2); const timeStr=(m.date||'').slice(11,16)||'TBA';
-  return '<div class="hero"><div class="hero-in"><div class="hero-top"><span class="hero-tag">'+(isLive?'<span class="dot"></span>LIVE':m.cat==='finished'?'RESULT':'UPCOMING')+'</span>'+(m.matchType?'<span class="hero-min">'+escapeHtml(m.matchType.toUpperCase())+'</span>':'')+'</div><div class="hero-comp">'+escapeHtml(m.series||'Cricket')+'</div><div class="hero-teams"><div class="hero-team">'+crestHTML(img1,t1||'T1','lg')+'<div class="name">'+escapeHtml(t1||'T1')+'</div></div><div class="hero-score">'+((s1.main!=='—'||s2.main!=='—')?'<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="font-family:var(--font-en);font-weight:800;font-size:15px">'+s1.main+' <span style="color:var(--text-3);font-size:10px">'+s1.sub+'</span></div><div style="font-family:var(--font-en);font-weight:800;font-size:15px">'+s2.main+' <span style="color:var(--text-3);font-size:10px">'+s2.sub+'</span></div></div>':'<div class="vs">'+escapeHtml(timeStr)+'</div>')+'</div><div class="hero-team">'+crestHTML(img2,t2||'T2','lg')+'<div class="name">'+escapeHtml(t2||'T2')+'</div></div></div></div></div>';
-}
-function sectionCricket(m,t){ if(!m.length) return ''; return '<div class="sec-hd"><h2>'+(t==='চলমান ম্যাচ'?'<span class="pulse"></span>':'')+t+'</h2><a>'+m.length+' matches</a></div><div class="league-group">'+m.map(renderCricketRow).join('')+'</div>'; }
-function renderCricketRow(m){
-  const [t1,t2]=m.teams;
-  const img1=cricketLogo(m,t1),img2=cricketLogo(m,t2);
-  const scoreFor=team=>{ const s=m.scores.filter(x=>(x.inning||'').includes(team)); if(!s.length) return null; return {r:s[0].r,w:s[0].w,o:s[0].o}; };
-  const s1=scoreFor(t1),s2=scoreFor(t2); const timeStr=(m.date||'').slice(11,16)||'TBA';
-  const timeCol=m.live?'<span class="tm">LIVE</span><span class="st">Now</span>':m.cat==='finished'?'<span class="tm date">RES</span><span class="st">Ended</span>':'<span class="tm">'+timeStr+'</span><span class="st">Start</span>';
-  const teamRows=[t1,t2].map((t,i)=>{ const sc=i===0?s1:s2; const img=i===0?img1:img2; return '<div class="mteam">'+crestHTML(img,t||'?','sm')+'<span class="tn">'+escapeHtml(t||'—')+'</span><span class="ts" style="font-size:12.5px">'+(sc?(sc.r+'/'+sc.w+' ('+sc.o+')'):'—')+'</span></div>'; }).join('');
-  const fav=(t1&&isFav(t1))||(t2&&isFav(t2))?'on':'';
-  return '<div class="match '+(m.live?'live':'')+'" data-id="'+m.id+'" data-sport="cricket"><div class="match-time">'+timeCol+'</div><div class="match-body">'+teamRows+(m.status?'<div style="margin-top:6px;font-size:10.5px;color:#6EE7B7;text-align:center;font-weight:600;padding:6px 9px;background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.22);border-radius:8px">'+escapeHtml(m.status)+'</div>':'')+'</div><button class="match-star '+fav+'" data-fav-home="'+escapeHtml(t1||'')+'" data-fav-away="'+escapeHtml(t2||'')+'" onclick="event.stopPropagation();window.__toggleFav(this)"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></button></div>';
-}
-
 /* ===== Shared ===== */
 function updateCounts(list){
   const live=list.filter(m=>m.live).length,up=list.filter(m=>m.cat==='upcoming').length,fin=list.filter(m=>m.cat==='finished').length;
@@ -1181,17 +1234,16 @@ function updateCounts(list){
   if($('#c-fin')) $('#c-fin').textContent=fin;
 }
 function updateNavBadge(){
-  const list=state.sport==='football'?state.football:state.cricket;
-  const live=list.filter(m=>m.live).length;
+  const live=state.football.filter(m=>m.live).length;
   const b=$('#navLiveBadge'); if(!b) return;
   if(live>0){ b.style.display='grid'; b.textContent=live; } else b.style.display='none';
 }
 function updateTicker(){
   const box=$('#tickerItems'); if(!box) return;
   if(state.connection==='offline'){ box.innerHTML='<span class="ticker-item" style="color:#FFD98A">📴 ইন্টারনেট নেই</span>'; return; }
-  const all=state.football.concat(state.cricket),live=all.filter(m=>m.live);
+  const live=state.football.filter(m=>m.live);
   if(!live.length){ box.innerHTML='<span class="ticker-item">এই মুহূর্তে লাইভ ম্যাচ নেই · আপডেট চলছে</span>'; return; }
-  const items=live.slice(0,15).map(m=>m.id.startsWith('fb')?'<span class="ticker-item">'+(isFavMatch(m)?'⭐':(m.intl?'🌍':'⚽'))+' <b>'+escapeHtml(m.home)+'</b> '+(m.hs??0)+' – '+(m.as??0)+' <b>'+escapeHtml(m.away)+'</b> · '+escapeHtml(m.minute||'')+'</span>':'<span class="ticker-item">🏏 <b>'+escapeHtml(m.name||(m.teams||[]).join(' vs '))+'</b></span>').join('');
+  const items=live.slice(0,15).map(m=>'<span class="ticker-item">'+(isFavMatch(m)?'⭐':(m.intl?'🌍':'⚽'))+' <b>'+escapeHtml(m.home)+'</b> '+(m.hs??0)+' – '+(m.as??0)+' <b>'+escapeHtml(m.away)+'</b> · '+escapeHtml(m.minute||'')+'</span>').join('');
   box.innerHTML=items+items;
 }
 function switchPage(name){
@@ -1207,72 +1259,208 @@ function switchPage(name){
 $$('.bnav-btn').forEach(btn=>{ btn.onclick=()=>switchPage(btn.dataset.page); });
 
 function renderScorePage(){
-  const list=state.sport==='football'?state.football:state.cricket;
+  const list=state.football;
   const live=list.filter(m=>m.live),today=list.filter(m=>m.dateKey===todayKey());
   $('#statLive').textContent=live.length;
   $('#statTotal').textContent=today.length;
   const box=$('#scoreList');
-  const sorted=list.slice().sort((a,b)=>{ const r={live:0,upcoming:1,finished:2}; if(r[a.cat]!==r[b.cat]) return r[a.cat]-r[b.cat]; return new Date(a.utc||a.date)-new Date(b.utc||b.date); });
+  const sorted=list.slice().sort((a,b)=>{ const r={live:0,upcoming:1,finished:2}; if(r[a.cat]!==r[b.cat]) return r[a.cat]-r[b.cat]; return new Date(a.utc||0)-new Date(b.utc||0); });
   if(!sorted.length){ box.innerHTML=emptyState('স্কোর নেই',''); return; }
-  const renderer=state.sport==='football'?renderRow:renderCricketRow;
-  box.innerHTML='<div class="league-group" style="margin:0 14px">'+sorted.map(renderer).join('')+'</div>';
+  box.innerHTML='<div class="league-group" style="margin:0 14px">'+sorted.map(renderRow).join('')+'</div>';
   bindClicks();
 }
 function renderSchedulePage(){
-  const list=state.sport==='football'?state.football:state.cricket;
+  const list=state.football;
   const box=$('#scheduleList');
   if(!list.length){ box.innerHTML=emptyState('সময়সূচি নেই',''); return; }
   const g={}; list.forEach(m=>{ const k=m.dateKey; if(k) (g[k]||=[]).push(m); });
   const dates=Object.keys(g).sort();
-  const renderer=state.sport==='football'?renderRow:renderCricketRow;
-  box.innerHTML=dates.map(dk=>{ const ms=g[dk].slice().sort((a,b)=>new Date(a.utc||a.date)-new Date(b.utc||b.date)); const parts=dk.split('-');
-    return '<div class="day-block"><div class="day-hd"><div class="day-num">'+parts[2]+'<small>'+monthShortNum(parts[1])+'</small></div><div class="day-meta"><b>'+escapeHtml(relDate(dk))+'</b><span>'+ms.length+' MATCHES</span></div></div>'+ms.map(renderer).join('')+'</div>'; }).join('');
+  box.innerHTML=dates.map(dk=>{ const ms=g[dk].slice().sort((a,b)=>new Date(a.utc||0)-new Date(b.utc||0)); const parts=dk.split('-');
+    return '<div class="day-block"><div class="day-hd"><div class="day-num">'+parts[2]+'<small>'+monthShortNum(parts[1])+'</small></div><div class="day-meta"><b>'+escapeHtml(relDate(dk))+'</b><span>'+ms.length+' MATCHES</span></div></div>'+ms.map(renderRow).join('')+'</div>'; }).join('');
   bindClicks();
 }
-function bindClicks(){ $$('.match').forEach(el=>{ el.onclick=(e)=>{ if(e.target.closest('.match-star')) return; openDetail(el.dataset.id,el.dataset.sport); }; }); }
+function bindClicks(){ $$('.match').forEach(el=>{ el.onclick=(e)=>{ if(e.target.closest('.match-star')) return; openDetail(el.dataset.id); }; }); }
 
 /* ===== Sheet ===== */
 function closeDetail(){ $('#mask').classList.remove('on'); $('#sheet').classList.remove('on'); }
 $('#mask').onclick=closeDetail;
 $('#sheetClose').onclick=closeDetail;
-function openDetail(id,sport){
+
+function openDetail(id){
   haptic(); soundClick();
-  const src=sport==='football'?state.football:state.cricket;
-  const m=src.find(x=>x.id===id); if(!m) return;
-  $('#sheetBody').innerHTML=sport==='football'?footballDetail(m):cricketDetail(m);
+  const m=state.football.find(x=>x.id===id); if(!m) return;
+  // Immediate premium skeleton + basic info
+  $('#sheetBody').innerHTML=footballDetailBase(m)+'<div id="detailExtra"><div class="detail-loading"><div class="spin-ic"></div>বিস্তারিত লোড হচ্ছে...</div></div>';
   $('#mask').classList.add('on'); $('#sheet').classList.add('on');
+  // Async load rich data
+  loadMatchExtras(m);
 }
-function footballDetail(m){
+
+function footballDetailBase(m){
   const statusLabel=m.live?'LIVE · '+escapeHtml(m.minute||''):m.cat==='finished'?'FULL TIME':'UPCOMING';
   const fav=isFavMatch(m)?'on':'';
   const reminder=(JSON.parse(localStorage.getItem('reminders')||'[]')).includes(m.id)?'on':'';
-  const raw=m.raw||{}; const weather=raw.weather||{}; const h2h=raw.head_to_head||{};
+  const raw=m.raw||{};
+  const leagueId=raw.league_id||'';
   let html='<div class="sd-hero"><div class="sd-title">'+(m.intl?'🌍 ':'')+escapeHtml(m.comp)+'</div><div class="sd-status '+(m.live?'live':'')+'">'+statusLabel+'</div><div class="sd-teams"><div class="sd-side">'+crestHTML(m.homeCrest,m.homeFull,'lg')+'<div class="name">'+escapeHtml(m.homeFull)+'</div></div><div class="sd-score"><span>'+(m.hs??'–')+'</span><i>:</i><span>'+(m.as??'–')+'</span></div><div class="sd-side">'+crestHTML(m.awayCrest,m.awayFull,'lg')+'<div class="name">'+escapeHtml(m.awayFull)+'</div></div></div><div class="detail-actions">'+
     '<button class="act-btn primary" onclick="window.__toggleFav(this)" data-fav-home="'+escapeHtml(m.home)+'" data-fav-away="'+escapeHtml(m.away)+'"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>'+(fav?'প্রিয়':'প্রিয় টিম')+'</button>'+
     '<button class="act-btn reminder '+reminder+'" data-reminder-id="'+m.id+'" onclick="window.__toggleReminder(this)"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 1 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>'+(reminder?'রিমাইন্ডার চালু':'মনে করান')+'</button>'+
     '<button class="act-btn" onclick="window.__shareMatch(\''+m.id+'\')"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>শেয়ার</button>'+
+    (leagueId?'<button class="act-btn stand" onclick="window.__openStandings('+leagueId+',\''+escapeHtml(m.comp)+'\')"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg>স্ট্যান্ডিংস</button>':'')+
     '</div></div>';
-  if(h2h.total_matches){
-    const hw=h2h.home_wins||0,dw=h2h.draws||0,aw=h2h.away_wins||0,tot=h2h.total_matches;
-    const hp=Math.round((hw/tot)*100),dp=Math.round((dw/tot)*100),ap=100-hp-dp;
-    html+='<div class="sd-section-title">হেড-টু-হেড · শেষ '+tot+' ম্যাচ</div><div class="h2h-row"><div class="h2h-stat"><b>'+hw+'</b><small>'+escapeHtml(m.home)+'</small></div><div class="h2h-vs">ড্র '+dw+'</div><div class="h2h-stat"><b>'+aw+'</b><small>'+escapeHtml(m.away)+'</small></div></div><div class="h2h-bar"><i style="background:#D4FF3A;width:'+hp+'%"></i><i style="background:#6E6E8E;width:'+dp+'%"></i><i style="background:#FF3B5C;width:'+ap+'%"></i></div><div class="h2h-legend"><span><b style="background:#D4FF3A"></b>জয় '+hp+'%</span><span><b style="background:#6E6E8E"></b>ড্র '+dp+'%</span><span><b style="background:#FF3B5C"></b>হার '+ap+'%</span></div>';
-  }
-  if(weather.temperature_c!=null){
-    const icons={0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',51:'🌦️',61:'🌧️',71:'🌨️',95:'⛈️'};
-    const icon=icons[weather.code]||'🌡️';
-    html+='<div class="sd-section-title">আবহাওয়া</div><div class="weather-card"><div class="weather-icon">'+icon+'</div><div class="weather-info"><b>'+weather.temperature_c+'°C</b><span>বাতাস '+Math.round(weather.wind_speed||0)+' km/h</span></div></div>';
-  }
-  html+='<div class="sd-section-title">ম্যাচ তথ্য</div><div class="sd-info-grid"><div class="sd-info"><small>Competition</small><b>'+escapeHtml(m.comp)+'</b></div><div class="sd-info"><small>Region</small><b>'+escapeHtml(m.area||'—')+'</b></div><div class="sd-info"><small>Date</small><b>'+escapeHtml(relDate(m.dateKey))+' · '+escapeHtml(m.dateKey.slice(5))+'</b></div><div class="sd-info"><small>Kickoff</small><b>'+formatTime(m.timeStr)+'</b></div>'+(raw.round_label?'<div class="sd-info" style="grid-column:span 2"><small>Round</small><b>'+escapeHtml(raw.round_label)+'</b></div>':'')+'</div>';
   return html;
 }
-function cricketDetail(m){
-  const [t1,t2]=m.teams;
-  const img1=cricketLogo(m,t1),img2=cricketLogo(m,t2);
-  const scoreFor=t=>{ const s=m.scores.filter(x=>(x.inning||'').includes(t)); if(!s.length) return '—'; return s.map(x=>x.r+'/'+x.w+' ('+x.o+')').join(' & '); };
-  const fav=((t1&&isFav(t1))||(t2&&isFav(t2)))?'on':'';
-  const reminder=(JSON.parse(localStorage.getItem('reminders')||'[]')).includes(m.id)?'on':'';
-  return '<div class="sd-hero"><div class="sd-title">'+escapeHtml(m.series||'Cricket')+'</div><div class="sd-status '+(m.live?'live':'')+'">'+(m.live?'LIVE':m.cat==='finished'?'COMPLETED':'UPCOMING')+'</div><div class="sd-teams"><div class="sd-side">'+crestHTML(img1,t1||'—','lg')+'<div class="name">'+escapeHtml(t1||'—')+'</div></div><div class="sd-score" style="font-size:18px"><div style="display:flex;flex-direction:column;gap:5px;align-items:center"><span style="font-size:13px">'+escapeHtml(scoreFor(t1))+'</span><i style="font-size:11px">vs</i><span style="font-size:13px">'+escapeHtml(scoreFor(t2))+'</span></div></div><div class="sd-side">'+crestHTML(img2,t2||'—','lg')+'<div class="name">'+escapeHtml(t2||'—')+'</div></div></div><div class="detail-actions"><button class="act-btn primary" onclick="window.__toggleFav(this)" data-fav-home="'+escapeHtml(t1||'')+'" data-fav-away="'+escapeHtml(t2||'')+'"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>'+(fav?'প্রিয়':'প্রিয় টিম')+'</button><button class="act-btn reminder '+reminder+'" data-reminder-id="'+m.id+'" onclick="window.__toggleReminder(this)"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 1 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>'+(reminder?'চালু':'মনে করান')+'</button><button class="act-btn" onclick="window.__shareMatch(\''+m.id+'\')"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>শেয়ার</button></div></div>'+(m.status?'<div style="margin-bottom:18px;padding:11px;border-radius:11px;background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.22);font-size:11.5px;color:#6EE7B7;font-weight:600;text-align:center">'+escapeHtml(m.status)+'</div>':'')+'<div class="sd-section-title">ম্যাচ তথ্য</div><div class="sd-info-grid"><div class="sd-info"><small>Format</small><b>'+escapeHtml((m.matchType||'—').toUpperCase())+'</b></div><div class="sd-info"><small>Series</small><b>'+escapeHtml(m.series||'—')+'</b></div><div class="sd-info" style="grid-column:span 2"><small>Venue</small><b>'+escapeHtml(m.venue||'—')+'</b></div></div>';
+
+async function loadMatchExtras(m){
+  const eventId=String(m.id).replace('fb-','');
+  const box=$('#detailExtra'); if(!box) return;
+  try{
+    const [h2hRes,incRes,lineRes,statsRes]=await Promise.all([
+      bsd('/api/v2/events/'+eventId+'/h2h/').catch(()=>null),
+      bsd('/api/v2/events/'+eventId+'/incidents/').catch(()=>null),
+      bsd('/api/v2/events/'+eventId+'/lineups/').catch(()=>null),
+      bsd('/api/v2/events/'+eventId+'/stats/').catch(()=>null)
+    ]);
+    let html='';
+    // Timeline / Incidents
+    const incidents=(incRes&&(incRes.incidents||incRes.results||incRes))||[];
+    if(Array.isArray(incidents)&&incidents.length){
+      html+='<div class="sd-section-title">⏱ টাইমলাইন</div><div class="timeline">';
+      incidents.slice(0,25).forEach(inc=>{
+        const min=inc.minute!=null?inc.minute+(inc.extra_minute?'+'+inc.extra_minute:''):'–';
+        const type=(inc.type||inc.incident_type||'').toLowerCase();
+        let cls='',icon='',label='';
+        if(type.includes('goal')){ cls='goal'; icon='⚽'; label='গোল'; }
+        else if(type.includes('yellow')){ cls='card-y'; icon='🟨'; label='হলুদ কার্ড'; }
+        else if(type.includes('red')){ cls='card-r'; icon='🟥'; label='লাল কার্ড'; }
+        else if(type.includes('sub')){ cls=''; icon='🔄'; label='বদলি'; }
+        else if(type.includes('var')){ cls=''; icon='📺'; label='VAR'; }
+        else { icon='•'; label=inc.type||'ইভেন্ট'; }
+        const player=inc.player_name||inc.player||inc.player_in||'';
+        const team=inc.team||inc.team_name||'';
+        html+='<div class="tl-item"><div class="tl-min">'+escapeHtml(String(min))+"'</div><div class=\"tl-card "+cls+'"><b>'+icon+' '+label+'</b>'+(player?'<small>'+escapeHtml(player)+(team?' · '+escapeHtml(team):'')+'</small>':'')+'</div></div>';
+      });
+      html+='</div>';
+    }
+    // Stats
+    if(statsRes&&statsRes.stats){
+      const s=statsRes.stats;
+      const home=s.home||{},away=s.away||{};
+      const rows=[
+        ['বল দখল %', home.ball_possession, away.ball_possession],
+        ['মোট শট', home.total_shots, away.total_shots],
+        ['টার্গেটে শট', home.shots_on_target, away.shots_on_target],
+        ['xG', home.xg&&home.xg.actual, away.xg&&away.xg.actual],
+        ['কর্নার', home.corners, away.corners],
+        ['ফাউল', home.fouls, away.fouls]
+      ].filter(r=>r[1]!=null||r[2]!=null);
+      if(rows.length){
+        html+='<div class="sd-section-title">📊 ম্যাচ স্ট্যাটস</div><div class="stat-bars">';
+        rows.forEach(([label,h,a])=>{
+          const hv=Number(h)||0, av=Number(a)||0, tot=hv+av||1;
+          const hp=Math.round((hv/tot)*100), ap=100-hp;
+          html+='<div class="stat-bar-row"><div class="label">'+label+'</div><span>'+(h!=null?h:'–')+'</span><div class="stat-bar-track"><i class="h" style="width:'+hp+'%"></i><i class="a" style="width:'+ap+'%"></i></div><span style="text-align:right">'+(a!=null?a:'–')+'</span></div>';
+        });
+        html+='</div>';
+      }
+    }
+    // Lineups
+    if(lineRes){
+      const homeXI=(lineRes.home&&(lineRes.home.starting||lineRes.home.starters||lineRes.home))||lineRes.home_team||[];
+      const awayXI=(lineRes.away&&(lineRes.away.starting||lineRes.away.starters||lineRes.away))||lineRes.away_team||[];
+      const hList=Array.isArray(homeXI)?homeXI:(homeXI.players||[]);
+      const aList=Array.isArray(awayXI)?awayXI:(awayXI.players||[]);
+      if(hList.length||aList.length){
+        html+='<div class="sd-section-title">👥 লাইনআপ</div><div class="lineup-grid">';
+        html+='<div class="lineup-side"><h4>'+crestHTML(m.homeCrest,m.home,'sm')+' '+escapeHtml(m.home)+'</h4>';
+        hList.slice(0,11).forEach(p=>{ const name=p.name||p.player_name||p; const num=p.number||p.shirt_number||''; html+='<div class="lineup-player"><span class="lineup-num">'+escapeHtml(String(num||'–'))+'</span><span class="lineup-name">'+escapeHtml(name)+'</span></div>'; });
+        html+='</div><div class="lineup-side"><h4>'+crestHTML(m.awayCrest,m.away,'sm')+' '+escapeHtml(m.away)+'</h4>';
+        aList.slice(0,11).forEach(p=>{ const name=p.name||p.player_name||p; const num=p.number||p.shirt_number||''; html+='<div class="lineup-player"><span class="lineup-num">'+escapeHtml(String(num||'–'))+'</span><span class="lineup-name">'+escapeHtml(name)+'</span></div>'; });
+        html+='</div></div>';
+      }
+    }
+    // H2H (prefer dedicated endpoint)
+    const h2h=h2hRes||(m.raw&&m.raw.head_to_head)||{};
+    if(h2h.total_matches){
+      const hw=h2h.home_wins||0,dw=h2h.draws||0,aw=h2h.away_wins||0,tot=h2h.total_matches;
+      const hp=Math.round((hw/tot)*100),dp=Math.round((dw/tot)*100),ap=100-hp-dp;
+      html+='<div class="sd-section-title">হেড-টু-হেড · শেষ '+tot+' ম্যাচ</div><div class="h2h-row"><div class="h2h-stat"><b>'+hw+'</b><small>'+escapeHtml(m.home)+'</small></div><div class="h2h-vs">ড্র '+dw+'</div><div class="h2h-stat"><b>'+aw+'</b><small>'+escapeHtml(m.away)+'</small></div></div><div class="h2h-bar"><i style="background:#D4FF3A;width:'+hp+'%"></i><i style="background:#6E6E8E;width:'+dp+'%"></i><i style="background:#FF3B5C;width:'+ap+'%"></i></div><div class="h2h-legend"><span><b style="background:#D4FF3A"></b>জয় '+hp+'%</span><span><b style="background:#6E6E8E"></b>ড্র '+dp+'%</span><span><b style="background:#FF3B5C"></b>হার '+ap+'%</span></div>';
+    }
+    // Weather + basic info
+    const weather=(m.raw&&m.raw.weather)||{};
+    if(weather.temperature_c!=null){
+      const icons={0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',51:'🌦️',61:'🌧️',71:'🌨️',95:'⛈️'};
+      const icon=icons[weather.code]||'🌡️';
+      html+='<div class="sd-section-title">আবহাওয়া</div><div class="weather-card"><div class="weather-icon">'+icon+'</div><div class="weather-info"><b>'+weather.temperature_c+'°C</b><span>বাতাস '+Math.round(weather.wind_speed||0)+' km/h</span></div></div>';
+    }
+    const raw=m.raw||{};
+    html+='<div class="sd-section-title">ম্যাচ তথ্য</div><div class="sd-info-grid"><div class="sd-info"><small>Competition</small><b>'+escapeHtml(m.comp)+'</b></div><div class="sd-info"><small>Region</small><b>'+escapeHtml(m.area||'—')+'</b></div><div class="sd-info"><small>Date</small><b>'+escapeHtml(relDate(m.dateKey))+' · '+escapeHtml(m.dateKey.slice(5))+'</b></div><div class="sd-info"><small>Kickoff</small><b>'+formatTime(m.timeStr)+'</b></div>'+(raw.round_label?'<div class="sd-info" style="grid-column:span 2"><small>Round</small><b>'+escapeHtml(raw.round_label)+'</b></div>':'')+'</div>';
+    box.innerHTML=html||'<div style="padding:20px;text-align:center;color:var(--text-3);font-size:12px">অতিরিক্ত ডেটা পাওয়া যায়নি</div>';
+  }catch(e){
+    console.warn('extras',e);
+    box.innerHTML='<div style="padding:16px;text-align:center;color:var(--text-3);font-size:12px">বিস্তারিত লোড করা যায়নি</div>';
+  }
 }
+
+/* ===== Standings ===== */
+window.__openStandings=async function(leagueId,leagueName){
+  haptic(); soundClick();
+  $('#sheetBody').innerHTML='<div class="sd-hero"><div class="sd-title">📊 STANDINGS</div><div class="sd-status">'+escapeHtml(leagueName||'League')+'</div></div><div class="detail-loading"><div class="spin-ic"></div>স্ট্যান্ডিংস লোড হচ্ছে...</div>';
+  try{
+    // current season
+    let seasonId=null;
+    try{
+      const season=await bsd('/api/v2/leagues/'+leagueId+'/season/');
+      seasonId=season.id||season.season_id;
+    }catch(e){}
+    const path=seasonId?'/api/v2/leagues/'+leagueId+'/standings/?season_id='+seasonId:'/api/v2/leagues/'+leagueId+'/standings/';
+    const data=await bsd(path);
+    const rows=data.standings||data.results||data.table||[];
+    // handle groups
+    let tables=[];
+    if(data.groups&&Array.isArray(data.groups)){
+      data.groups.forEach(g=>{ tables.push({name:g.name||g.group_name||'Group',rows:g.standings||g.table||[]}); });
+    } else if(Array.isArray(rows)&&rows.length){
+      tables=[{name:'',rows}];
+    }
+    if(!tables.length){
+      $('#sheetBody').innerHTML='<div class="sd-hero"><div class="sd-title">📊 STANDINGS</div></div>'+emptyState('স্ট্যান্ডিংস নেই','এই লিগের টেবিল পাওয়া যায়নি');
+      return;
+    }
+    let html='<div class="sd-hero"><div class="sd-title">📊 '+escapeHtml(leagueName||'League')+'</div><div class="sd-status">স্ট্যান্ডিংস ও ম্যাচ</div></div>';
+    tables.forEach(t=>{
+      if(t.name) html+='<div class="sd-section-title">'+escapeHtml(t.name)+'</div>';
+      html+='<div style="overflow-x:auto;margin-bottom:16px;border-radius:14px;border:1px solid var(--stroke);background:var(--glass)"><table class="stand-table"><thead><tr><th>#</th><th>টিম</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>';
+      (t.rows||[]).forEach((r,i)=>{
+        const pos=r.position||r.rank||(i+1);
+        const name=r.team_name||r.team||r.name||'–';
+        const tid=r.team_id||r.id;
+        const logo=tid?'https://sports.bzzoiro.com/img/team/'+tid+'/?bg=transparent':'';
+        const p=r.played||r.matches_played||0;
+        const w=r.won||r.wins||0,d=r.drawn||r.draws||0,l=r.lost||r.losses||0;
+        const gd=(r.goal_difference!=null?r.goal_difference:(r.goals_for||0)-(r.goals_against||0));
+        const pts=r.points||r.pts||0;
+        html+='<tr><td class="stand-pos">'+pos+'</td><td><div class="stand-team">'+(logo?'<img src="'+logo+'" loading="lazy" onerror="this.style.display=\'none\'">':'')+escapeHtml(name)+'</div></td><td>'+p+'</td><td>'+w+'</td><td>'+d+'</td><td>'+l+'</td><td>'+gd+'</td><td class="stand-pts">'+pts+'</td></tr>';
+      });
+      html+='</tbody></table></div>';
+    });
+    // League fixtures from already loaded data
+    const leagueMatches=state.football.filter(m=>m.raw&&String(m.raw.league_id)===String(leagueId));
+    if(leagueMatches.length){
+      const live=leagueMatches.filter(m=>m.live);
+      const up=leagueMatches.filter(m=>m.cat==='upcoming').slice(0,10);
+      const fin=leagueMatches.filter(m=>m.cat==='finished').slice(0,8);
+      if(live.length) html+='<div class="sd-section-title">🔴 লাইভ</div><div class="league-group">'+live.map(renderRow).join('')+'</div>';
+      if(up.length) html+='<div class="sd-section-title">📅 আসন্ন</div><div class="league-group">'+up.map(renderRow).join('')+'</div>';
+      if(fin.length) html+='<div class="sd-section-title">✅ শেষ</div><div class="league-group">'+fin.map(renderRow).join('')+'</div>';
+    }
+    $('#sheetBody').innerHTML=html;
+    bindClicks();
+  }catch(err){
+    console.error(err);
+    $('#sheetBody').innerHTML='<div class="sd-hero"><div class="sd-title">📊 STANDINGS</div></div>'+errorCard('স্ট্যান্ডিংস লোড হয়নি',err.message||'','');
+  }
+};
 
 /* ===== Reminder ===== */
 window.__toggleReminder=function(el){
@@ -1282,22 +1470,16 @@ window.__toggleReminder=function(el){
   if(arr.includes(id)){ arr=arr.filter(x=>x!==id); el.classList.remove('on'); el.innerHTML='<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;stroke-width:2.2;fill:none"><path d="M18 8A6 6 0 1 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>মনে করান'; showStatus('🔔 রিমাইন্ডার বন্ধ',''); }
   else { arr.push(id); el.classList.add('on'); el.innerHTML='<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;stroke-width:2.2;fill:none"><path d="M18 8A6 6 0 1 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>রিমাইন্ডার চালু'; showStatus('🔔 ম্যাচ শুরুর আগে জানানো হবে','ok'); soundSuccess(); }
   localStorage.setItem('reminders',JSON.stringify(arr));
-  if(state.sport==='football') renderFootball();
+  renderFootball();
 };
 
 /* ===== Share Match ===== */
 window.__shareMatch=function(id){
   haptic(); soundClick();
-  const src=id.startsWith('fb')?state.football:state.cricket;
-  const m=src.find(x=>x.id===id); if(!m) return;
-  let text='';
-  if(id.startsWith('fb')){
-    text='⚽ '+m.home+' vs '+m.away+'\n'+m.comp+'\n'+(m.hs!=null?(m.hs+' - '+m.as):formatTime(m.timeStr))+'\n\nhttps://khelaghor.pages.dev';
-  } else {
-    text='🏏 '+(m.teams||[]).join(' vs ')+'\n'+(m.series||'')+'\n\nhttps://khelaghor.pages.dev';
-  }
+  const m=state.football.find(x=>x.id===id); if(!m) return;
+  const text='⚽ '+m.home+' vs '+m.away+'\n'+m.comp+'\n'+(m.hs!=null?(m.hs+' - '+m.as):formatTime(m.timeStr))+'\n\nhttps://khelaghor.pages.dev';
   if(navigator.share){
-    navigator.share({title:'আমার খেলাঘর — Live Scores',text:text,url:'https://khelaghor.pages.dev'}).then(()=>{unlockAch('share');renderAchs();}).catch(()=>{});
+    navigator.share({title:'আমার খেলাঘর — Live Football',text:text,url:'https://khelaghor.pages.dev'}).then(()=>{unlockAch('share');renderAchs();}).catch(()=>{});
   } else {
     navigator.clipboard.writeText(text).then(()=>{ showStatus('✅ কপি হয়েছে — পেস্ট করে শেয়ার করুন','ok'); unlockAch('share'); renderAchs(); soundSuccess(); });
   }
@@ -1311,27 +1493,11 @@ $('#voiceBtn').onclick=function(){
   const rec=new SR(); rec.lang='bn-BD'; rec.interimResults=false;
   this.classList.add('listening');
   showStatus('🎤 বলুন...','ok'); beep(900,0.08,'sine',0.06);
-  rec.onresult=(e)=>{ const t=e.results[0][0].transcript; $('#searchInput').value=t; state.search=t; matchIdx=0; if(state.sport==='football') renderFootball(); else renderCricket(); showStatus('🔍 "'+t+'"','ok'); unlockAch('voice'); renderAchs(); };
+  rec.onresult=(e)=>{ const t=e.results[0][0].transcript; $('#searchInput').value=t; state.search=t; matchIdx=0; renderFootball(); showStatus('🔍 "'+t+'"','ok'); unlockAch('voice'); renderAchs(); };
   rec.onerror=()=>{ showStatus('ভয়েস শোনা যায়নি','err'); };
   rec.onend=()=>{ this.classList.remove('listening'); };
   rec.start();
 };
-
-/* ===== Sport switch ===== */
-$$('.sport-btn').forEach(btn=>{
-  btn.onclick=()=>{
-    haptic(); soundClick();
-    const s=btn.dataset.sport; if(s===state.sport) return;
-    state.sport=s;
-    $$('.sport-btn').forEach(b=>b.classList.toggle('on',b.dataset.sport===s));
-    $('#sportSwitch').dataset.active=s;
-    $('#footballPanel').style.display=s==='football'?'':'none';
-    $('#cricketPanel').style.display=s==='cricket'?'':'none';
-    const list=s==='football'?state.football:state.cricket;
-    updateCounts(applySearch(list)); updateNavBadge();
-    window.scrollTo({top:0});
-  };
-});
 
 /* ===== Chips ===== */
 $$('#chips .chip').forEach(c=>{
@@ -1340,7 +1506,7 @@ $$('#chips .chip').forEach(c=>{
     $$('#chips .chip').forEach(x=>x.classList.remove('on'));
     c.classList.add('on');
     state.filter=c.dataset.filter;
-    if(state.sport==='football') renderFootball(); else renderCricket();
+    renderFootball();
     window.scrollTo({top:0});
   };
 });
@@ -1351,7 +1517,7 @@ $('#searchInput').addEventListener('input',(e)=>{
   matchIdx=0;
   $('#clearSearch').classList.toggle('on', state.search.length>0);
   if(state.search) unlockAch('search');
-  if(state.sport==='football') renderFootball(); else renderCricket();
+  renderFootball();
   renderAchs();
 });
 $('#clearSearch').onclick=()=>{
@@ -1359,7 +1525,7 @@ $('#clearSearch').onclick=()=>{
   $('#searchInput').value='';
   state.search='';
   $('#clearSearch').classList.remove('on');
-  if(state.sport==='football') renderFootball(); else renderCricket();
+  renderFootball();
 };
 
 /* ===== Refresh ===== */
@@ -1369,14 +1535,14 @@ $('#refreshBtn').onclick=async()=>{
   btn.classList.add('spin');
   setConnection('checking');
   state.consecutiveFails=0;
-  await Promise.all([loadFootball(),loadCricket()]);
+  await loadFootball();
   setTimeout(()=>btn.classList.remove('spin'),500);
 };
 
 /* ===== Noti button ===== */
 $('#notiBtn').onclick=()=>{
   haptic(); soundClick();
-  const live=(state.football.concat(state.cricket)).filter(m=>m.live).length;
+  const live=state.football.filter(m=>m.live).length;
   const intl=state.football.filter(m=>m.intl).length;
   const fav=state.football.filter(m=>isFavMatch(m)).length;
   const icon=state.connection==='online'?'🟢':state.connection==='offline'?'🔴':'🟡';
@@ -1431,7 +1597,7 @@ $('#btnClearFavs').onclick=()=>{
 };
 $('#btnShareApp').onclick=()=>{
   haptic(); soundClick();
-  const text='⚽ আমার খেলাঘর — লাইভ ফুটবল ও ক্রিকেট স্কোর\n\nবাংলাদেশের সেরা প্রিমিয়াম লাইভ স্কোর অ্যাপ। ১৫০০+ ম্যাচ, আন্তর্জাতিক সব লিগ, লাইভ নোটিফিকেশন!\n\nhttps://khelaghor.pages.dev';
+  const text='⚽ আমার খেলাঘর — লাইভ ফুটবল স্কোর\n\nবাংলাদেশের সেরা প্রিমিয়াম লাইভ ফুটবল স্কোর অ্যাপ। ১৫০০+ ম্যাচ, আন্তর্জাতিক সব লিগ, লাইভ নোটিফিকেশন!\n\nhttps://khelaghor.pages.dev';
   if(navigator.share){
     navigator.share({title:'আমার খেলাঘর',text:text,url:'https://khelaghor.pages.dev'}).then(()=>{unlockAch('share');renderAchs();soundSuccess();}).catch(()=>{});
   } else {
@@ -1444,26 +1610,26 @@ $('#btnAbout').onclick=()=>{
   <div class="about-hero">
     <div class="about-logo"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg></div>
     <h1>আমার খেলাঘর</h1>
-    <p>বাংলাদেশের প্রিমিয়াম লাইভ স্পোর্টস প্ল্যাটফর্ম</p>
-    <span class="about-ver">v13.0 LEGENDARY</span>
+    <p>বাংলাদেশের প্রিমিয়াম লাইভ ফুটবল প্ল্যাটফর্ম</p>
+    <span class="about-ver">v14.1 ULTRA PREMIUM</span>
   </div>
   <div class="about-section"><h3><span class="ico gold"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span>যে জন্য আমরা সেরা</h3>
-    <p>আমাদের লক্ষ্য একটাই — <strong>বাংলাদেশের সেরা ফ্রি লাইভ স্কোর অ্যাপ</strong>। যেকোনো দেশ, যেকোনো লিগ, যেকোনো ম্যাচ — সব এক জায়গায়। কোনো লগইন নেই, কোনো সাবস্ক্রিপশন নেই, কোনো ট্র্যাকিং নেই।</p>
+    <p>আমাদের লক্ষ্য একটাই — <strong>বাংলাদেশের সেরা ফ্রি লাইভ ফুটবল স্কোর অ্যাপ</strong>। যেকোনো দেশ, যেকোনো লিগ, যেকোনো ম্যাচ — সব এক জায়গায়। কোনো লগইন নেই, কোনো সাবস্ক্রিপশন নেই, কোনো ট্র্যাকিং নেই।</p>
   </div>
   <div class="about-section"><h3><span class="ico violet"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/></svg></span>লেজেন্ডারি ফিচার</h3>
     <div class="feat-grid">
       <div class="feat-item"><div class="fi-ic">⚽</div><b>১৫০০+ ম্যাচ</b><span>প্রতিদিন সব লিগ</span></div>
-      <div class="feat-item"><div class="fi-ic">🏏</div><b>লাইভ ক্রিকেট</b><span>বিশ্বজুড়ে সব ম্যাচ</span></div>
+      <div class="feat-item"><div class="fi-ic">🛡️</div><b>টিম লোগো</b><span>অফিসিয়াল ক্রেস্ট</span></div>
+      <div class="feat-item"><div class="fi-ic">⏱</div><b>টাইমলাইন</b><span>গোল · কার্ড · বদলি</span></div>
+      <div class="feat-item"><div class="fi-ic">👥</div><b>লাইনআপ</b><span>Starting XI</span></div>
+      <div class="feat-item"><div class="fi-ic">📊</div><b>ম্যাচ স্ট্যাটস</b><span>xG · Possession</span></div>
+      <div class="feat-item"><div class="fi-ic">📋</div><b>স্ট্যান্ডিংস</b><span>লিগ টেবিল</span></div>
       <div class="feat-item"><div class="fi-ic">🌍</div><b>আন্তর্জাতিক</b><span>WC, EURO, Copa</span></div>
       <div class="feat-item"><div class="fi-ic">⭐</div><b>প্রিয় টিম</b><span>ওয়ান-ট্যাপ সেভ</span></div>
       <div class="feat-item"><div class="fi-ic">🔔</div><b>গোল অ্যালার্ট</b><span>লাইভ নোটিফিকেশন</span></div>
-      <div class="feat-item"><div class="fi-ic">🎉</div><b>গোল এনিমেশন</b><span>কনফেটি ফেস্টিভ্যাল</span></div>
+      <div class="feat-item"><div class="fi-ic">🎉</div><b>গোল এনিমেশন</b><span>কনফেটি</span></div>
       <div class="feat-item"><div class="fi-ic">🎤</div><b>ভয়েস সার্চ</b><span>বলে খুঁজুন</span></div>
-      <div class="feat-item"><div class="fi-ic">🌓</div><b>ডার্ক/লাইট</b><span>থিম টগল</span></div>
-      <div class="feat-item"><div class="fi-ic">📊</div><b>H2H স্ট্যাট</b><span>পুরোনো রেকর্ড</span></div>
-      <div class="feat-item"><div class="fi-ic">🌤️</div><b>আবহাওয়া</b><span>স্টেডিয়ামের তথ্য</span></div>
-      <div class="feat-item"><div class="fi-ic">📤</div><b>শেয়ার</b><span>বন্ধুদের জানান</span></div>
-      <div class="feat-item"><div class="fi-ic">🏅</div><b>অ্যাচিভমেন্ট</b><span>৮টি ব্যাজ</span></div>
+      <div class="feat-item"><div class="fi-ic">📱</div><b>PWA</b><span>অ্যাপের মতো</span></div>
     </div>
   </div>
   <div class="about-section"><h3><span class="ico pink"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>লাইভ পরিসংখ্যান</h3>
@@ -1476,12 +1642,12 @@ $('#btnAbout').onclick=()=>{
   </div>
   <div class="about-section"><h3><span class="ico amber"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>টেকনোলজি</h3>
     <p style="margin-bottom:12px">আধুনিক Web technology দিয়ে তৈরি — দ্রুত, নিরাপদ, নির্ভরযোগ্য।</p>
-    <div class="tech-list"><span class="tech-chip">PWA</span><span class="tech-chip">Service Worker</span><span class="tech-chip">Cloudflare CDN</span><span class="tech-chip">HTTPS</span><span class="tech-chip">BSD API</span><span class="tech-chip">Cricket API</span><span class="tech-chip">Voice Search</span><span class="tech-chip">Web Audio</span><span class="tech-chip">Zero Tracker</span></div>
+    <div class="tech-list"><span class="tech-chip">PWA</span><span class="tech-chip">Service Worker</span><span class="tech-chip">Cloudflare CDN</span><span class="tech-chip">HTTPS</span><span class="tech-chip">BSD API</span><span class="tech-chip">Voice Search</span><span class="tech-chip">Web Audio</span><span class="tech-chip">Zero Tracker</span></div>
   </div>
   <div class="about-section"><h3><span class="ico gold"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>প্রাইভেসি</h3>
     <p>আমরা <strong>কোনো ব্যক্তিগত তথ্য সংগ্রহ করি না</strong>। কোনো লগইন নেই, কোনো ট্র্যাকিং নেই, কোনো অ্যাকাউন্ট নেই। আপনার প্রিয় টিম শুধু আপনার ফোনেই সেভ থাকে। ১০০% অ্যানোনিমাস, ১০০% নিরাপদ।</p>
   </div>
-  <div class="credit-box"><div class="heart">💚</div><h4>ভালোবাসা দিয়ে তৈরি</h4><p>বাংলাদেশের ফুটবল ও ক্রিকেট ফ্যানদের জন্য <b>গর্বের সাথে</b> তৈরি</p><p style="margin-top:10px;font-family:var(--font-en);font-size:10.5px;letter-spacing:.4px">© 2026 আমার খেলাঘর · Made with ❤️ in BD</p></div>`;
+  <div class="credit-box"><div class="heart">💚</div><h4>ভালোবাসা দিয়ে তৈরি</h4><p>বাংলাদেশের ফুটবল ফ্যানদের জন্য <b>গর্বের সাথে</b> তৈরি</p><p style="margin-top:10px;font-family:var(--font-en);font-size:10.5px;letter-spacing:.4px">© 2026 আমার খেলাঘর · Made with ❤️ in BD</p></div>`;
   $('#sheetBody').innerHTML=html;
   $('#mask').classList.add('on'); $('#sheet').classList.add('on');
 };
@@ -1501,7 +1667,7 @@ $('#installBtn').onclick=doInstall;
 $('#btnInstall2').onclick=doInstall;
 
 (function(){
-  const manifest={name:"আমার খেলাঘর",short_name:"খেলাঘর",description:"লাইভ ফুটবল ও ক্রিকেট স্কোর",
+  const manifest={name:"আমার খেলাঘর",short_name:"খেলাঘর",description:"লাইভ ফুটবল স্কোর",
     start_url:"./",scope:"./",display:"standalone",orientation:"portrait",background_color:"#050510",theme_color:"#050510",lang:"bn",id:"/",categories:["sports","entertainment"],
     icons:[
       {src:"data:image/svg+xml;base64,"+btoa('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" rx="48" fill="#D4FF3A"/><path d="M48 96 L96 48 L144 96 L144 144 L48 144 Z M72 144 L72 112 L120 112 L120 144" fill="#050510"/></svg>'),sizes:"192x192",type:"image/svg+xml",purpose:"any"},
@@ -1519,13 +1685,13 @@ $('#btnInstall2').onclick=doInstall;
   document.addEventListener('touchstart',(e)=>{ if(window.scrollY===0) startY=e.touches[0].clientY; },{passive:true});
   document.addEventListener('touchmove',(e)=>{ if(window.scrollY!==0||!startY) return; const y=e.touches[0].clientY-startY; if(y>60&&!pulling&&!triggered){ pulling=true; ptr.classList.add('on'); } },{passive:true});
   document.addEventListener('touchend',async()=>{
-    if(pulling){ triggered=true; ptr.classList.add('spin'); setConnection('checking'); await Promise.all([loadFootball(),loadCricket()]); setTimeout(()=>{ ptr.classList.remove('on','spin'); pulling=false; triggered=false; startY=0; },600); }
+    if(pulling){ triggered=true; ptr.classList.add('spin'); setConnection('checking'); await loadFootball(); setTimeout(()=>{ ptr.classList.remove('on','spin'); pulling=false; triggered=false; startY=0; },600); }
   });
 })();
 
 /* ===== Splash + Onboarding ===== */
 const OB=[
-  {ic:'⚽',title:'স্বাগতম!',text:'বাংলাদেশের সেরা লাইভ ফুটবল ও ক্রিকেট স্কোর অ্যাপে আপনাকে স্বাগতম। কোনো লগইন নেই, কোনো সাবস্ক্রিপশন নেই।'},
+  {ic:'⚽',title:'স্বাগতম!',text:'বাংলাদেশের সেরা লাইভ ফুটবল স্কোর অ্যাপে আপনাকে স্বাগতম। কোনো লগইন নেই, কোনো সাবস্ক্রিপশন নেই।'},
   {ic:'⭐',title:'প্রিয় টিম সেভ করুন',text:'যেকোনো ম্যাচে ⭐ চিহ্নে চাপ দিয়ে আপনার প্রিয় টিম সেভ করুন। তারপর "প্রিয়" ফিল্টারে শুধু তাদের ম্যাচ দেখুন।'},
   {ic:'🔔',title:'লাইভ অ্যালার্ট পান',text:'Profile → ম্যাচ নোটিফিকেশন চালু করুন। গোল হলে সাথে সাথে জানবেন, কনফেটিও দেখবেন!'}
 ];
@@ -1563,16 +1729,14 @@ setInterval(()=>{
   const reminders=JSON.parse(localStorage.getItem('reminders')||'[]');
   if(!reminders.length) return;
   const now=Date.now();
-  const all=state.football.concat(state.cricket);
   reminders.forEach(id=>{
-    const m=all.find(x=>x.id===id); if(!m) return;
+    const m=state.football.find(x=>x.id===id); if(!m) return;
     if(m.cat==='upcoming'){
-      const start=Date.parse(m.utc||m.date);
+      const start=Date.parse(m.utc);
       const diff=start-now;
-      /* 10 min before */
       if(diff>0 && diff<11*60*1000 && !localStorage.getItem('notified_'+id)){
         localStorage.setItem('notified_'+id,'1');
-        sendNotification('⚽ ম্যাচ শুরু হতে চলেছে','১০ মিনিট পরে '+(m.home||(m.teams||[])[0]||'')+' vs '+(m.away||(m.teams||[])[1]||''),'reminder-'+id);
+        sendNotification('⚽ ম্যাচ শুরু হতে চলেছে','১০ মিনিট পরে '+m.home+' vs '+m.away,'reminder-'+id);
         toast('⏰ ম্যাচ শুরু হতে চলেছে','goal');
       }
     }
@@ -1588,15 +1752,24 @@ setTimeout(showOnboard, 1500);
 setTimeout(()=>{ $('#splash').classList.add('hide'); }, 1200);
 
 loadFootball();
-loadCricket();
 
-setInterval(()=>{
-  if(document.hidden) return;
-  if(state.connection==='offline') return;
-  loadFootball(); loadCricket();
-  if(state.page==='score') renderScorePage();
-  if(state.page==='schedule') renderSchedulePage();
-}, REFRESH_MS);
+/* Smart auto-refresh: live থাকলে ৪৫স, নাহলে ৩মিনিট */
+let refreshTimer=null;
+function scheduleNextRefresh(){
+  clearTimeout(refreshTimer);
+  const hasLive=state.football.some(m=>m.live);
+  const ms=hasLive?REFRESH_LIVE_MS:REFRESH_IDLE_MS;
+  refreshTimer=setTimeout(()=>{
+    if(document.hidden){ scheduleNextRefresh(); return; }
+    if(state.connection==='offline'){ scheduleNextRefresh(); return; }
+    loadFootball().then(()=>{
+      if(state.page==='score') renderScorePage();
+      if(state.page==='schedule') renderSchedulePage();
+    });
+  }, ms);
+}
+// last-updated ticker
+setInterval(updateLastUpdated, 15000);
 </script>
 </body>
-</html>
+  </html>
